@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Touch Type Race — інструкція користувача</title>
-  <meta name="description" content="Як користуватися вебтренажером сенсорного друку Touch Type Race: режими, джерела тексту, онлайн-гонка, аналіз результатів." />
+  <meta name="description" content="Як користуватися вебтренажером сенсорного друку Touch Type Race: режими, джерела тексту, програма тренування, онлайн-гонка, аналіз результатів." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -106,6 +106,14 @@
     .brand-text .md-typescale-title-medium { margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     .brand-text .md-typescale-body-small { margin: 0; color: var(--md-sys-color-on-surface-variant); }
     .top-actions { display: flex; flex-wrap: wrap; gap: 4px; justify-content: flex-end; }
+
+    .lang-switch { display: inline-flex; gap: 2px; padding: 3px; border-radius: 999px; background: var(--md-sys-color-surface-container-high); flex-shrink: 0; }
+    .lang-chip {
+      border: none; background: transparent; font: inherit; font-size: 0.8rem; font-weight: 500; letter-spacing: 0.02em;
+      padding: 6px 11px; border-radius: 999px; cursor: pointer; color: var(--md-sys-color-on-surface-variant);
+    }
+    .lang-chip:hover { background: color-mix(in srgb, var(--md-sys-color-primary) 10%, transparent); }
+    .lang-chip[aria-pressed="true"] { background: var(--md-sys-color-primary); color: var(--md-sys-color-on-primary); }
 
     main { max-width: var(--page-max); margin: 0 auto; padding: 24px 20px 96px; }
     section { margin-bottom: 28px; }
@@ -210,11 +218,8 @@
 
     footer { max-width: var(--page-max); margin: 0 auto; padding: 8px 20px 40px; color: var(--md-sys-color-on-surface-variant); text-align: center; }
 
-    .snackbar { position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%) translateY(120%); z-index: 40; padding: 12px 20px; border-radius: 8px; background: var(--md-sys-color-inverse-surface); color: var(--md-sys-color-inverse-on-surface); box-shadow: var(--shadow-2); transition: transform 0.25s ease; font-size: 0.9rem; }
-    .snackbar.show { transform: translateX(-50%) translateY(0); }
-
     @media (max-width: 720px) {
-      .top-actions md-text-button { display: none; }
+      .top-actions md-text-button, .top-actions md-filled-button { display: none; }
       .hero h1 { max-width: none; font-size: 1.65rem; }
     }
   </style>
@@ -225,16 +230,20 @@
       <div class="brand-icon" aria-hidden="true"><span class="material-symbols-outlined">keyboard</span></div>
       <div class="brand-text">
         <p class="md-typescale-title-medium">Touch Type Race</p>
-        <p class="md-typescale-body-small">Інструкція користувача</p>
+        <p class="md-typescale-body-small" data-i18n="brand.subtitle">Інструкція користувача</p>
       </div>
     </div>
     <div class="top-actions">
-      <md-text-button href="#modes">Режими</md-text-button>
-      <md-text-button href="#sources">Тексти</md-text-button>
-      <md-text-button href="#program">Програма</md-text-button>
-      <md-text-button href="#online">Онлайн</md-text-button>
-      <md-text-button href="#results">Аналіз</md-text-button>
-      <md-filled-button href="#start">Почати</md-filled-button>
+      <md-text-button href="#modes" data-i18n="nav.modes">Режими</md-text-button>
+      <md-text-button href="#sources" data-i18n="nav.sources">Тексти</md-text-button>
+      <md-text-button href="#program" data-i18n="nav.program">Програма</md-text-button>
+      <md-text-button href="#online" data-i18n="nav.online">Онлайн</md-text-button>
+      <md-filled-button href="#start" data-i18n="nav.start">Почати</md-filled-button>
+    </div>
+    <div class="lang-switch" role="group" data-i18n-label="lang.switcher.aria" aria-label="Мова інтерфейсу">
+      <button type="button" class="lang-chip" data-lang="uk" lang="uk" title="Українська" aria-label="Українська">UA</button>
+      <button type="button" class="lang-chip" data-lang="pl" lang="pl" title="Polski" aria-label="Polski">PL</button>
+      <button type="button" class="lang-chip" data-lang="en" lang="en" title="English" aria-label="English">EN</button>
     </div>
   </header>
 
@@ -243,275 +252,813 @@
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero-kicker">
         <span class="material-symbols-outlined" style="font-size:18px">bolt</span>
-        Вебтренажер сенсорного друку
+        <span data-i18n="hero.kicker">Вебтренажер сенсорного друку</span>
       </div>
-      <h1 id="hero-title" class="md-typescale-headline-large">Як користуватися Touch Type Race</h1>
-      <p class="hero-lead md-typescale-body-large">
+      <h1 id="hero-title" class="md-typescale-headline-large" data-i18n="hero.title">Як користуватися Touch Type Race</h1>
+      <p class="hero-lead md-typescale-body-large" data-i18n="hero.lead">
         Touch Type Race — вебтренажер сенсорного друку. Тренуйтеся самостійно, змагайтеся з ботом
-        або з іншими гравцями онлайн. Ця сторінка проведе вас від першого
-        запуску до аналізу результатів.
+        або з іншими гравцями онлайн. Ця сторінка проведе вас від першого запуску до аналізу результатів.
       </p>
       <div class="hero-meta">
-        <span class="chip-static"><span class="material-symbols-outlined" style="font-size:16px">translate</span> UA · EN · PL</span>
-        <span class="chip-static"><span class="material-symbols-outlined" style="font-size:16px">groups</span> Соло · Бот · Онлайн</span>
-        <span class="chip-static"><span class="material-symbols-outlined" style="font-size:16px">insights</span> Аналіз швидкості та точності</span>
+        <span class="chip-static"><span class="material-symbols-outlined" style="font-size:16px">translate</span> <span data-i18n="hero.chip.langs">UA · EN · PL</span></span>
+        <span class="chip-static"><span class="material-symbols-outlined" style="font-size:16px">groups</span> <span data-i18n="hero.chip.modes">Соло · Бот · Онлайн</span></span>
+        <span class="chip-static"><span class="material-symbols-outlined" style="font-size:16px">insights</span> <span data-i18n="hero.chip.analysis">Аналіз швидкості та точності</span></span>
       </div>
       <div class="hero-actions">
-        <md-filled-button href="#start"><span class="material-symbols-outlined" slot="icon">play_arrow</span> Почати роботу</md-filled-button>
-        <md-outlined-button href="https://typing-race-2026-chi.vercel.app/" target="_blank" rel="noopener"><span class="material-symbols-outlined" slot="icon">open_in_new</span> Відкрити застосунок</md-outlined-button>
+        <md-filled-button href="#start"><span class="material-symbols-outlined" slot="icon">play_arrow</span> <span data-i18n="hero.cta.start">Почати роботу</span></md-filled-button>
+        <md-outlined-button data-app-link href="https://typing-race-2026-chi.vercel.app/" target="_blank" rel="noopener"><span class="material-symbols-outlined" slot="icon">open_in_new</span> <span data-i18n="hero.cta.app">Відкрити застосунок</span></md-outlined-button>
       </div>
     </section>
 
     <!-- START -->
     <section id="start" aria-labelledby="start-title">
-      <div class="section-header"><span class="material-symbols-outlined">rocket_launch</span><h2 id="start-title" class="md-typescale-title-large">1. Початок роботи</h2></div>
+      <div class="section-header"><span class="material-symbols-outlined">rocket_launch</span><h2 id="start-title" class="md-typescale-title-large" data-i18n="s1.title">1. Початок роботи</h2></div>
       <div class="next-panel">
         <ol class="priority-list">
-          <li><span class="step-num">1</span><span><strong>Відкрийте застосунок у браузері</strong> <a href="https://typing-race-2026-chi.vercel.app/" target="_blank" rel="noopener">typing-race-2026-chi.vercel.app</a></span></li>
-          <li><span class="step-num">2</span><span><strong>За потреби перемкніть тему</strong> — світлу або темну у верхній частині сторінки.</span></li>
-          <li><span class="step-num">3</span><span><strong>Введіть ім’я</strong> у полі «Ваш нікнейм».</span></li>
-          <li><span class="step-num">4</span><span><strong>Оберіть режим змагання</strong> та джерело тексту.</span></li>
-          <li><span class="step-num">5</span><span><strong>Налаштуйте звук</strong> і натисніть кнопку початку заїзду.</span></li>
+          <li><span class="step-num">1</span><span data-i18n="s1.step1"><strong>Відкрийте застосунок у браузері</strong> <a data-app-link href="https://typing-race-2026-chi.vercel.app/" target="_blank" rel="noopener">typing-race-2026-chi.vercel.app</a></span></li>
+          <li><span class="step-num">2</span><span data-i18n="s1.step2"><strong>За потреби перемкніть тему</strong> — світлу або темну у верхній частині сторінки.</span></li>
+          <li><span class="step-num">3</span><span data-i18n="s1.step3"><strong>Введіть ім’я</strong> у полі «Ваш нікнейм».</span></li>
+          <li><span class="step-num">4</span><span data-i18n="s1.step4"><strong>Оберіть режим змагання</strong> та джерело тексту.</span></li>
+          <li><span class="step-num">5</span><span data-i18n="s1.step5"><strong>Налаштуйте звук</strong> і натисніть кнопку початку заїзду.</span></li>
         </ol>
         <p class="panel-note"><span class="material-symbols-outlined" style="font-size:18px;color:var(--md-sys-color-primary)">tips_and_updates</span>
-          Під час першого тренування краще обрати режим <strong>«Соло»</strong> та коротку вправу з <strong>«Академії»</strong>.</p>
+          <span data-i18n="s1.note">Під час першого тренування краще обрати режим <strong>«Соло»</strong> та коротку вправу з <strong>«Академії»</strong>.</span></p>
       </div>
     </section>
 
     <!-- MODES -->
     <section id="modes" aria-labelledby="modes-title">
-      <div class="section-header"><span class="material-symbols-outlined">sports_esports</span><h2 id="modes-title" class="md-typescale-title-large">2. Режими змагання</h2></div>
+      <div class="section-header"><span class="material-symbols-outlined">sports_esports</span><h2 id="modes-title" class="md-typescale-title-large" data-i18n="s2.title">2. Режими змагання</h2></div>
       <div class="card-grid">
-        <div class="md-card"><div class="card-icon"><span class="material-symbols-outlined">person</span></div><h3 class="md-typescale-title-medium">Соло</h3><p class="muted">Самостійне тренування без суперника.</p></div>
-        <div class="md-card"><div class="card-icon"><span class="material-symbols-outlined">smart_toy</span></div><h3 class="md-typescale-title-medium">Проти AI</h3><p class="muted">Гонка з ботом. Перед стартом оберіть його швидкість.</p></div>
-        <div class="md-card"><div class="card-icon"><span class="material-symbols-outlined">public</span></div><h3 class="md-typescale-title-medium">Онлайн</h3><p class="muted">Гонка з іншими користувачами через інтернет.</p></div>
+        <div class="md-card"><div class="card-icon"><span class="material-symbols-outlined">person</span></div><h3 class="md-typescale-title-medium" data-i18n="s2.solo.title">Соло</h3><p class="muted" data-i18n="s2.solo.desc">Самостійне тренування без суперника.</p></div>
+        <div class="md-card"><div class="card-icon"><span class="material-symbols-outlined">smart_toy</span></div><h3 class="md-typescale-title-medium" data-i18n="s2.bot.title">Проти AI</h3><p class="muted" data-i18n="s2.bot.desc">Гонка з ботом. Перед стартом оберіть його швидкість.</p></div>
+        <div class="md-card"><div class="card-icon"><span class="material-symbols-outlined">public</span></div><h3 class="md-typescale-title-medium" data-i18n="s2.online.title">Онлайн</h3><p class="muted" data-i18n="s2.online.desc">Гонка з іншими користувачами через інтернет.</p></div>
       </div>
       <div class="status-banner warn" style="margin-top:14px">
         <span class="material-symbols-outlined">info</span>
-        <p class="md-typescale-body-medium">Якщо кнопки <strong>«Онлайн»</strong> немає, онлайн-режим недоступний у поточній версії або сервер тимчасово не підключений. Інші режими продовжують працювати.</p>
+        <p class="md-typescale-body-medium" data-i18n="s2.banner">Якщо кнопки <strong>«Онлайн»</strong> немає, онлайн-режим недоступний у поточній версії або сервер тимчасово не підключений. Інші режими продовжують працювати.</p>
       </div>
     </section>
 
     <!-- SOURCES -->
     <section id="sources" aria-labelledby="sources-title">
-      <div class="section-header"><span class="material-symbols-outlined">library_books</span><h2 id="sources-title" class="md-typescale-title-large">3. Джерела тексту</h2></div>
+      <div class="section-header"><span class="material-symbols-outlined">library_books</span><h2 id="sources-title" class="md-typescale-title-large" data-i18n="s3.title">3. Джерела тексту</h2></div>
       <div class="card-grid">
-        <div class="md-card"><div class="card-icon"><span class="material-symbols-outlined">school</span></div><h3 class="md-typescale-title-medium">Академія</h3><p class="muted">Структуровані вправи українською, англійською або польською. Оберіть мову, модуль і вправу.</p></div>
-        <div class="md-card"><div class="card-icon"><span class="material-symbols-outlined">fitness_center</span></div><h3 class="md-typescale-title-medium">Тренажер</h3><p class="muted">Послідовний курс сенсорного набору. Прогрес можна експортувати у файл і згодом відновити або об’єднати через імпорт.</p></div>
-        <div class="md-card"><div class="card-icon"><span class="material-symbols-outlined">menu_book</span></div><h3 class="md-typescale-title-medium">Бібліотека знань</h3><p class="muted">Навчальні тексти, згруповані за темами.</p></div>
-        <div class="md-card"><div class="card-icon"><span class="material-symbols-outlined">upload_file</span></div><h3 class="md-typescale-title-medium">З файлу</h3><p class="muted">Власний текст із файлу <code>.txt</code> або <code>.md</code>.</p></div>
+        <div class="md-card"><div class="card-icon"><span class="material-symbols-outlined">school</span></div><h3 class="md-typescale-title-medium" data-i18n="s3.academy.title">Академія</h3><p class="muted" data-i18n="s3.academy.desc">Структуровані вправи українською, англійською або польською. Оберіть мову, модуль і вправу.</p></div>
+        <div class="md-card"><div class="card-icon"><span class="material-symbols-outlined">fitness_center</span></div><h3 class="md-typescale-title-medium" data-i18n="s3.tutor.title">Тренажер</h3><p class="muted" data-i18n="s3.tutor.desc">Послідовний курс сенсорного набору. Прогрес можна експортувати у файл і згодом відновити або об’єднати через імпорт.</p></div>
+        <div class="md-card"><div class="card-icon"><span class="material-symbols-outlined">menu_book</span></div><h3 class="md-typescale-title-medium" data-i18n="s3.knowledge.title">Бібліотека знань</h3><p class="muted" data-i18n="s3.knowledge.desc">Навчальні тексти, згруповані за темами.</p></div>
+        <div class="md-card"><div class="card-icon"><span class="material-symbols-outlined">upload_file</span></div><h3 class="md-typescale-title-medium" data-i18n="s3.file.title">З файлу</h3><p class="muted" data-i18n="s3.file.desc">Власний текст із файлу <code>.txt</code> або <code>.md</code>.</p></div>
       </div>
     </section>
 
     <!-- PROGRAM -->
     <section id="program" aria-labelledby="program-title">
-      <div class="section-header"><span class="material-symbols-outlined">route</span><h2 id="program-title" class="md-typescale-title-large">4. Програма тренування</h2></div>
+      <div class="section-header"><span class="material-symbols-outlined">route</span><h2 id="program-title" class="md-typescale-title-large" data-i18n="s4.title">4. Програма тренування</h2></div>
 
-      <p class="muted" style="margin:0 0 14px">
+      <p class="muted" style="margin:0 0 14px" data-i18n="s4.intro">
         Академія — не список, який треба «пройти», а послідовність із чотирьох кроків. Порядок і вимірюваний
         критерій переходу дають більше, ніж кількість зроблених вправ. Швидкість нижче вказана в
         <strong>SPM</strong> — символів за хвилину, тій самій величині, яку застосунок показує після кожного заїзду.
       </p>
 
       <div class="item">
-        <div class="item-top"><h3 class="md-typescale-title-medium">Крок 1. Механіка без слів</h3><span class="badge now">Основа</span></div>
-        <p class="muted" style="margin:0 0 12px">Патерни базового ряду й окремих пальців. Саме ці рухи потім несуть будь-який текст.</p>
+        <div class="item-top"><h3 class="md-typescale-title-medium" data-i18n="s4.step1.title">Крок 1. Механіка без слів</h3><span class="badge now" data-i18n="s4.step1.badge">Основа</span></div>
+        <p class="muted" style="margin:0 0 12px" data-i18n="s4.step1.lead">Патерни базового ряду й окремих пальців. Саме ці рухи потім несуть будь-який текст.</p>
         <ul class="checklist">
-          <li><span class="check-icon material-symbols-outlined">keyboard</span><span><strong>ЙЦУКЕН — «Початкова школа»</strong>, 6 вправ: Базовий ряд → Ритм ряду → Дзеркальні пари → Відкриті склади → Слова 3 літери → Нижній ряд: м с т.</span></li>
-          <li><span class="check-icon material-symbols-outlined">keyboard_alt</span><span><strong>Латиниця — Elementary</strong>, далі п’ять модулів чистої механіки: Straight Lines, Mirror Patterns, Alternating Hands, Finger Isolation, Rhythm &amp; Disruption. Це 20 вправ на <code>asdf jkl;</code> — механіка розкладки, а не англійська мова, тож вони працюють для всіх, хто друкує латиницею.</span></li>
-          <li><span class="check-icon material-symbols-outlined">translate</span><span><strong>Polski — Szkoła podstawowa</strong>, ті самі шість кроків польською; після них окремий модуль <em>Diakrytyki: mechanika Option/AltGr</em> (12 вправ).</span></li>
+          <li><span class="check-icon material-symbols-outlined">keyboard</span><span data-i18n="s4.step1.li1"><strong>ЙЦУКЕН — «Початкова школа»</strong>, 6 вправ: Базовий ряд → Ритм ряду → Дзеркальні пари → Відкриті склади → Слова 3 літери → Нижній ряд: м с т.</span></li>
+          <li><span class="check-icon material-symbols-outlined">keyboard_alt</span><span data-i18n="s4.step1.li2"><strong>Латиниця — Elementary</strong>, далі п’ять модулів чистої механіки: Straight Lines, Mirror Patterns, Alternating Hands, Finger Isolation, Rhythm &amp; Disruption. Це 20 вправ на <code>asdf jkl;</code> — механіка розкладки, а не англійська мова, тож вони працюють для всіх, хто друкує латиницею.</span></li>
+          <li><span class="check-icon material-symbols-outlined">translate</span><span data-i18n="s4.step1.li3"><strong>Polski — Szkoła podstawowa</strong>, ті самі шість кроків польською; після них окремий модуль <em>Diakrytyki: mechanika Option/AltGr</em> (12 вправ).</span></li>
         </ul>
-        <div class="why-box"><strong>Навіщо</strong><p>Пальці вчаться повертатися у вихідну позицію самі. Поки цього немає, кожне слово доводиться складати очима.</p></div>
+        <div class="why-box"><strong data-i18n="s4.step1.why.label">Навіщо</strong><p data-i18n="s4.step1.why.text">Пальці вчаться повертатися у вихідну позицію самі. Поки цього немає, кожне слово доводиться складати очима.</p></div>
       </div>
 
       <div class="item">
-        <div class="item-top"><h3 class="md-typescale-title-medium">Крок 2. Слова і речення</h3><span class="badge now">Зв’язування</span></div>
-        <p class="muted" style="margin:0">Рухи зв’язуються в безперервний набір: «Перші слова» → «Голосні та закінчення» → «Унікальні літери» (українська),
+        <div class="item-top"><h3 class="md-typescale-title-medium" data-i18n="s4.step2.title">Крок 2. Слова і речення</h3><span class="badge now" data-i18n="s4.step2.badge">Зв’язування</span></div>
+        <p class="muted" style="margin:0" data-i18n="s4.step2.text">Рухи зв’язуються в безперервний набір: «Перші слова» → «Голосні та закінчення» → «Унікальні літери» (українська),
           Full Keyboard → Words &amp; Sentences (English), Podstawy i podwójne → Znaki specjalne → Pełne zdania (polski).</p>
       </div>
 
       <div class="item">
-        <div class="item-top"><h3 class="md-typescale-title-medium">Крок 3. Слабкі місця</h3><span class="badge now">Прицільно</span></div>
-        <p class="muted" style="margin:0">Модулі під конкретну складність, а не «ще трохи тексту»: скупчення приголосних і кластери, рідкісні літери,
+        <div class="item-top"><h3 class="md-typescale-title-medium" data-i18n="s4.step3.title">Крок 3. Слабкі місця</h3><span class="badge now" data-i18n="s4.step3.badge">Прицільно</span></div>
+        <p class="muted" style="margin:0" data-i18n="s4.step3.text">Модулі під конкретну складність, а не «ще трохи тексту»: скупчення приголосних і кластери, рідкісні літери,
           подвоєння та регістр, пунктуація й цифри, ритм. В англійському курсі до них додаються Home-row Rolls, Alternation Rhythm,
           Vertical Jumps, Same-finger Friction і Production Patterns — по чотири вправи в кожному.</p>
       </div>
 
       <div class="item">
-        <div class="item-top"><h3 class="md-typescale-title-medium">Крок 4. Перенесення у справжній текст</h3><span class="badge todo">Перевірка</span></div>
-        <p class="muted" style="margin:0">Навичка чогось варта лише тоді, коли працює поза знайомою вправою: радіодиктанти, Гімн, Civic Classics,
+        <div class="item-top"><h3 class="md-typescale-title-medium" data-i18n="s4.step4.title">Крок 4. Перенесення у справжній текст</h3><span class="badge todo" data-i18n="s4.step4.badge">Перевірка</span></div>
+        <p class="muted" style="margin:0" data-i18n="s4.step4.text">Навичка чогось варта лише тоді, коли працює поза знайомою вправою: радіодиктанти, Гімн, Civic Classics,
           польські диктанди, Бібліотека знань — і заїзд у режимі «Соло», «Проти AI» чи «Онлайн» як контроль.</p>
       </div>
 
-      <div class="section-header" style="margin-top:24px"><span class="material-symbols-outlined">speed</span><h3 class="md-typescale-title-medium" style="margin:0">Які результати вважати достатніми</h3></div>
+      <div class="section-header" style="margin-top:24px"><span class="material-symbols-outlined">speed</span><h3 class="md-typescale-title-medium" style="margin:0" data-i18n="s4.results.heading">Які результати вважати достатніми</h3></div>
       <div class="card-grid">
-        <div class="md-card"><div class="card-icon"><span class="material-symbols-outlined">looks_one</span></div><h3 class="md-typescale-title-medium">Освоєння руху</h3><p class="muted"><strong>80–150 SPM</strong> · точність <strong>≥ 96%</strong>. Темп «Мудрого Слона». Швидкість тут не мета — мета в тому, щоб не підглядати на клавіатуру.</p></div>
-        <div class="md-card"><div class="card-icon"><span class="material-symbols-outlined">looks_two</span></div><h3 class="md-typescale-title-medium">Впевнена механіка</h3><p class="muted"><strong>150–250 SPM</strong> · точність <strong>≥ 97%</strong>. Рухи вже не потребують окремої уваги.</p></div>
-        <div class="md-card"><div class="card-icon"><span class="material-symbols-outlined">looks_3</span></div><h3 class="md-typescale-title-medium">Робочий рівень</h3><p class="muted"><strong>225–300 SPM</strong> · точність <strong>≥ 97%</strong>, не більше однієї помилки на коротку вправу. Темп «Швидкої Зебри».</p></div>
-        <div class="md-card"><div class="card-icon"><span class="material-symbols-outlined">looks_4</span></div><h3 class="md-typescale-title-medium">Високий рівень</h3><p class="muted"><strong>375–475 SPM</strong> · точність <strong>≥ 98%</strong>, на механіці — <strong>нуль помилок</strong>. Темп «Чорної Пантери».</p></div>
+        <div class="md-card"><div class="card-icon"><span class="material-symbols-outlined">looks_one</span></div><h3 class="md-typescale-title-medium" data-i18n="s4.tier1.title">Освоєння руху</h3><p class="muted" data-i18n="s4.tier1.text"><strong>80–150 SPM</strong> · точність <strong>≥ 96%</strong>. Темп «Мудрого Слона». Швидкість тут не мета — мета в тому, щоб не підглядати на клавіатуру.</p></div>
+        <div class="md-card"><div class="card-icon"><span class="material-symbols-outlined">looks_two</span></div><h3 class="md-typescale-title-medium" data-i18n="s4.tier2.title">Впевнена механіка</h3><p class="muted" data-i18n="s4.tier2.text"><strong>150–250 SPM</strong> · точність <strong>≥ 97%</strong>. Рухи вже не потребують окремої уваги.</p></div>
+        <div class="md-card"><div class="card-icon"><span class="material-symbols-outlined">looks_3</span></div><h3 class="md-typescale-title-medium" data-i18n="s4.tier3.title">Робочий рівень</h3><p class="muted" data-i18n="s4.tier3.text"><strong>225–300 SPM</strong> · точність <strong>≥ 97%</strong>, не більше однієї помилки на коротку вправу. Темп «Швидкої Зебри».</p></div>
+        <div class="md-card"><div class="card-icon"><span class="material-symbols-outlined">looks_4</span></div><h3 class="md-typescale-title-medium" data-i18n="s4.tier4.title">Високий рівень</h3><p class="muted" data-i18n="s4.tier4.text"><strong>375–475 SPM</strong> · точність <strong>≥ 98%</strong>, на механіці — <strong>нуль помилок</strong>. Темп «Чорної Пантери».</p></div>
       </div>
-      <div class="why-box" style="margin-top:14px"><strong>Вправа пройдена, коли</strong><p>ви <strong>двічі-тричі підряд</strong> дотягнули цільову швидкість свого етапу з не більш ніж однією помилкою — і не дивлячись на клавіатуру. Один вдалий прохід — випадковість, три — навичка.</p></div>
-      <p class="disclaimer">Далі за цією шкалою існує рівень <strong>550 SPM і вище</strong>. Він досяжний, але не є метою перших місяців: там механіка вже не тримається на увазі, а працює сама.</p>
+      <div class="why-box" style="margin-top:14px"><strong data-i18n="s4.pass.label">Вправа пройдена, коли</strong><p data-i18n="s4.pass.text">ви <strong>двічі-тричі підряд</strong> дотягнули цільову швидкість свого етапу з не більш ніж однією помилкою — і не дивлячись на клавіатуру. Один вдалий прохід — випадковість, три — навичка.</p></div>
+      <p class="disclaimer" data-i18n="s4.horizon">Далі за цією шкалою існує рівень <strong>550 SPM і вище</strong>. Він досяжний, але не є метою перших місяців: там механіка вже не тримається на увазі, а працює сама.</p>
 
-      <div class="section-header" style="margin-top:24px"><span class="material-symbols-outlined">timer</span><h3 class="md-typescale-title-medium" style="margin:0">Одне заняття</h3></div>
+      <div class="section-header" style="margin-top:24px"><span class="material-symbols-outlined">timer</span><h3 class="md-typescale-title-medium" style="margin:0" data-i18n="s4.session.heading">Одне заняття</h3></div>
       <div class="next-panel">
         <ol class="priority-list">
-          <li><span class="step-num">1</span><span><strong>Розігрів — 3 хв.</strong> Одна вже знайома вправа механіки.</span></li>
-          <li><span class="step-num">2</span><span><strong>Цільова вправа — 7 хв.</strong> Одна нова вправа або ваше слабке поєднання.</span></li>
-          <li><span class="step-num">3</span><span><strong>Закріплення — 5 хв.</strong> Та сама вправа до двох-трьох чистих проходів.</span></li>
-          <li><span class="step-num">4</span><span><strong>Перенесення — 3–5 хв.</strong> Короткий текст із Бібліотеки знань або заїзд «Соло».</span></li>
+          <li><span class="step-num">1</span><span data-i18n="s4.session.1"><strong>Розігрів — 3 хв.</strong> Одна вже знайома вправа механіки.</span></li>
+          <li><span class="step-num">2</span><span data-i18n="s4.session.2"><strong>Цільова вправа — 7 хв.</strong> Одна нова вправа або ваше слабке поєднання.</span></li>
+          <li><span class="step-num">3</span><span data-i18n="s4.session.3"><strong>Закріплення — 5 хв.</strong> Та сама вправа до двох-трьох чистих проходів.</span></li>
+          <li><span class="step-num">4</span><span data-i18n="s4.session.4"><strong>Перенесення — 3–5 хв.</strong> Короткий текст із Бібліотеки знань або заїзд «Соло».</span></li>
         </ol>
         <p class="panel-note"><span class="material-symbols-outlined" style="font-size:18px;color:var(--md-sys-color-primary)">pause_circle</span>
-          Підхід — 15–25 хвилин, після нього <strong>перерва обов’язкова</strong>: від десяти хвилин до кількох годин. Два підходи з перервою дають більше, ніж година без неї.
-          Якщо вправа не йде після кількох спокійних спроб у двох заняттях — перейдіть до сусідньої, а до складної повернітеся наступного дня. Рух часто дозріває саме за час паузи.</p>
+          <span data-i18n="s4.note.break">Підхід — 15–25 хвилин, після нього <strong>перерва обов’язкова</strong>: від десяти хвилин до кількох годин. Два підходи з перервою дають більше, ніж година без неї.
+          Якщо вправа не йде після кількох спокійних спроб у двох заняттях — перейдіть до сусідньої, а до складної повернітеся наступного дня. Рух часто дозріває саме за час паузи.</span></p>
         <p class="panel-note"><span class="material-symbols-outlined" style="font-size:18px;color:var(--md-sys-color-primary)">block</span>
-          Тримайте перемикач у стані <strong>«Помилки: блок»</strong> (він такий за замовчуванням) — він не дає проскочити помилку далі й одразу показує символ, який треба виправити.</p>
+          <span data-i18n="s4.note.block">Тримайте перемикач у стані <strong>«Помилки: блок»</strong> (він такий за замовчуванням) — він не дає проскочити помилку далі й одразу показує символ, який треба виправити.</span></p>
         <p class="panel-note"><span class="material-symbols-outlined" style="font-size:18px;color:var(--md-sys-color-primary)">battery_charging_full</span>
-          Денну ціль «Заряду тренування» закриває приблизно 500 символів вправ Академії — це 7–8 коротких вправ механіки. Тобто індикатор міряє <strong>регулярність</strong>, а не обсяг: закритий день не означає, що на сьогодні досить.</p>
+          <span data-i18n="s4.note.meter">Денну ціль «Заряду тренування» закриває приблизно 500 символів вправ Академії — це 7–8 коротких вправ механіки. Тобто індикатор міряє <strong>регулярність</strong>, а не обсяг: закритий день не означає, що на сьогодні досить.</span></p>
       </div>
 
-      <div class="section-header" style="margin-top:24px"><span class="material-symbols-outlined">troubleshoot</span><h3 class="md-typescale-title-medium" style="margin:0">Що видно в «Аналізі» → яку вправу брати</h3></div>
+      <div class="section-header" style="margin-top:24px"><span class="material-symbols-outlined">troubleshoot</span><h3 class="md-typescale-title-medium" style="margin:0" data-i18n="s4.map.heading">Що видно в «Аналізі» → яку вправу брати</h3></div>
       <div class="map-table-wrap">
         <table class="map-table">
-          <thead><tr><th>Симптом</th><th>Модуль Академії</th></tr></thead>
+          <thead><tr><th data-i18n="s4.map.th1">Симптом</th><th data-i18n="s4.map.th2">Модуль Академії</th></tr></thead>
           <tbody>
-            <tr><td>Помилки в <code>нн</code>, <code>тт</code>, <code>-ття</code>, <code>-ться</code></td><td>Складні патерни · Подвоєння та регістр</td></tr>
-            <tr><td>Затинання на <code>стр</code>, <code>здр</code>, <code>ств</code>, <code>дств</code></td><td>Скупчення приголосних · Кластери приголосних (розширені)</td></tr>
-            <tr><td>Рідкісні <code>ґ</code>, <code>є</code>, <code>ї</code>, апостроф</td><td>Унікальні літери</td></tr>
-            <tr><td><code>th</code>, <code>ing</code>, <code>tion</code>, <code>re/er</code></td><td>Alternation Rhythm · Clusters</td></tr>
-            <tr><td><code>q</code>, <code>x</code>, <code>z</code>, <code>j</code>, <code>k</code></td><td>Weak Letters</td></tr>
-            <tr><td>Мікропаузи на одному пальці: <code>un/nu</code>, <code>ol/lo</code>, <code>my/ym</code></td><td>Same-finger Friction · Vertical Jumps</td></tr>
-            <tr><td><code>ą</code>, <code>ę</code>, <code>ł</code>, <code>ó</code>, <code>ś</code>, <code>ż</code>, <code>ź</code>, <code>ć</code>, <code>ń</code></td><td>Diakrytyki: mechanika Option/AltGr</td></tr>
-            <tr><td><code>prz</code>, <code>szcz</code>, <code>rz</code>, <code>cz</code></td><td>Klastry · Dźwięczne i digrafy</td></tr>
-            <tr><td>Цифри, дужки, лапки, дефіси</td><td>Пунктуація та цифри · Punctuation &amp; Numbers</td></tr>
-            <tr><td>Нерівний ритм, різкі провали швидкості</td><td>Ритм · Rhythm &amp; Disruption</td></tr>
-            <tr><td>Великі літери, абревіатури, Shift</td><td>Подвоєння та регістр · Doubles &amp; Caps</td></tr>
+            <tr><td data-i18n="s4.map.r1">Помилки в <code>нн</code>, <code>тт</code>, <code>-ття</code>, <code>-ться</code></td><td>Складні патерни · Подвоєння та регістр</td></tr>
+            <tr><td data-i18n="s4.map.r2">Затинання на <code>стр</code>, <code>здр</code>, <code>ств</code>, <code>дств</code></td><td>Скупчення приголосних · Кластери приголосних (розширені)</td></tr>
+            <tr><td data-i18n="s4.map.r3">Рідкісні <code>ґ</code>, <code>є</code>, <code>ї</code>, апостроф</td><td>Унікальні літери</td></tr>
+            <tr><td data-i18n="s4.map.r4"><code>th</code>, <code>ing</code>, <code>tion</code>, <code>re/er</code></td><td>Alternation Rhythm · Clusters</td></tr>
+            <tr><td data-i18n="s4.map.r5"><code>q</code>, <code>x</code>, <code>z</code>, <code>j</code>, <code>k</code></td><td>Weak Letters</td></tr>
+            <tr><td data-i18n="s4.map.r6">Мікропаузи на одному пальці: <code>un/nu</code>, <code>ol/lo</code>, <code>my/ym</code></td><td>Same-finger Friction · Vertical Jumps</td></tr>
+            <tr><td data-i18n="s4.map.r7"><code>ą</code>, <code>ę</code>, <code>ł</code>, <code>ó</code>, <code>ś</code>, <code>ż</code>, <code>ź</code>, <code>ć</code>, <code>ń</code></td><td>Diakrytyki: mechanika Option/AltGr</td></tr>
+            <tr><td data-i18n="s4.map.r8"><code>prz</code>, <code>szcz</code>, <code>rz</code>, <code>cz</code></td><td>Klastry · Dźwięczne i digrafy</td></tr>
+            <tr><td data-i18n="s4.map.r9">Цифри, дужки, лапки, дефіси</td><td>Пунктуація та цифри · Punctuation &amp; Numbers</td></tr>
+            <tr><td data-i18n="s4.map.r10">Нерівний ритм, різкі провали швидкості</td><td>Ритм · Rhythm &amp; Disruption</td></tr>
+            <tr><td data-i18n="s4.map.r11">Великі літери, абревіатури, Shift</td><td>Подвоєння та регістр · Doubles &amp; Caps</td></tr>
           </tbody>
         </table>
       </div>
-      <p class="disclaimer">Наступне заняття починайте з 3–5 хвилин саме на слабке поєднання. Проходити весь курс заново через одну проблемну пару символів не потрібно.</p>
+      <p class="disclaimer" data-i18n="s4.map.footer">Наступне заняття починайте з 3–5 хвилин саме на слабке поєднання. Проходити весь курс заново через одну проблемну пару символів не потрібно.</p>
+      <p class="disclaimer" data-i18n="s4.modules.note">Назви модулів наведені так, як вони підписані в самому курсі: український курс має українські назви, англійський — англійські, польський — польські. Вони не перекладаються разом з інтерфейсом.</p>
     </section>
 
     <!-- RACE FLOW -->
     <section id="race" aria-labelledby="race-title">
-      <div class="section-header"><span class="material-symbols-outlined">flag</span><h2 id="race-title" class="md-typescale-title-large">5. Як проходить заїзд</h2></div>
+      <div class="section-header"><span class="material-symbols-outlined">flag</span><h2 id="race-title" class="md-typescale-title-large" data-i18n="s5.title">5. Як проходить заїзд</h2></div>
       <div class="next-panel">
         <ol class="priority-list">
-          <li><span class="step-num">1</span><span><strong>Дочекайтеся завершення відліку</strong> після старту.</span></li>
-          <li><span class="step-num">2</span><span><strong>Клацніть у поле набору</strong>, якщо курсор не активний.</span></li>
-          <li><span class="step-num">3</span><span><strong>Друкуйте показаний текст</strong> у тому самому регістрі та з усіма розділовими знаками.</span></li>
-          <li><span class="step-num">4</span><span><strong>Стежте за прогресом</strong>, швидкістю та точністю.</span></li>
-          <li><span class="step-num">5</span><span><strong>Щоб припинити заїзд раніше</strong>, натисніть «Закінчити достроково».</span></li>
+          <li><span class="step-num">1</span><span data-i18n="s5.step1"><strong>Дочекайтеся завершення відліку</strong> після старту.</span></li>
+          <li><span class="step-num">2</span><span data-i18n="s5.step2"><strong>Клацніть у поле набору</strong>, якщо курсор не активний.</span></li>
+          <li><span class="step-num">3</span><span data-i18n="s5.step3"><strong>Друкуйте показаний текст</strong> у тому самому регістрі та з усіма розділовими знаками.</span></li>
+          <li><span class="step-num">4</span><span data-i18n="s5.step4"><strong>Стежте за прогресом</strong>, швидкістю та точністю.</span></li>
+          <li><span class="step-num">5</span><span data-i18n="s5.step5"><strong>Щоб припинити заїзд раніше</strong>, натисніть «Закінчити достроково».</span></li>
         </ol>
         <p class="panel-note"><span class="material-symbols-outlined" style="font-size:18px;color:var(--md-sys-color-primary)">keyboard_alt</span>
-          Для польських та інших спеціальних символів використовуйте звичну клавіатурну розкладку з <strong>Option</strong> або <strong>AltGr</strong>.</p>
+          <span data-i18n="s5.note">Для польських та інших спеціальних символів використовуйте звичну клавіатурну розкладку з <strong>Option</strong> або <strong>AltGr</strong>.</span></p>
       </div>
     </section>
 
     <!-- ONLINE -->
     <section id="online" aria-labelledby="online-title">
-      <div class="section-header"><span class="material-symbols-outlined">lan</span><h2 id="online-title" class="md-typescale-title-large">6. Онлайн-гонка</h2></div>
+      <div class="section-header"><span class="material-symbols-outlined">lan</span><h2 id="online-title" class="md-typescale-title-large" data-i18n="s6.title">6. Онлайн-гонка</h2></div>
 
       <div class="item">
-        <div class="item-top"><h3 class="md-typescale-title-medium">Створення кімнати</h3><span class="badge now">Хост</span></div>
+        <div class="item-top"><h3 class="md-typescale-title-medium" data-i18n="s6.create.title">Створення кімнати</h3><span class="badge now" data-i18n="s6.create.badge">Хост</span></div>
         <ol class="priority-list">
-          <li><span class="step-num">1</span><span>Введіть нікнейм і оберіть <strong>«Онлайн»</strong>.</span></li>
-          <li><span class="step-num">2</span><span>Відкрийте вкладку <strong>«Створити»</strong>.</span></li>
-          <li><span class="step-num">3</span><span>Виберіть відкриту або закриту кімнату.</span></li>
-          <li><span class="step-num">4</span><span>Виберіть максимальну кількість гравців: <strong>2, 4 або 6</strong>.</span></li>
-          <li><span class="step-num">5</span><span>Оберіть текст і натисніть <strong>«Створити кімнату»</strong>.</span></li>
-          <li><span class="step-num">6</span><span>Скопіюйте п’ятизначний код і передайте його іншим учасникам.</span></li>
-          <li><span class="step-num">7</span><span>Коли приєднається щонайменше один гравець, натисніть <strong>«Розпочати гонку»</strong>.</span></li>
+          <li><span class="step-num">1</span><span data-i18n="s6.create.1">Введіть нікнейм і оберіть <strong>«Онлайн»</strong>.</span></li>
+          <li><span class="step-num">2</span><span data-i18n="s6.create.2">Відкрийте вкладку <strong>«Створити»</strong>.</span></li>
+          <li><span class="step-num">3</span><span data-i18n="s6.create.3">Виберіть відкриту або закриту кімнату.</span></li>
+          <li><span class="step-num">4</span><span data-i18n="s6.create.4">Виберіть максимальну кількість гравців: <strong>2, 4 або 6</strong>.</span></li>
+          <li><span class="step-num">5</span><span data-i18n="s6.create.5">Оберіть текст і натисніть <strong>«Створити кімнату»</strong>.</span></li>
+          <li><span class="step-num">6</span><span data-i18n="s6.create.6">Скопіюйте п’ятизначний код і передайте його іншим учасникам.</span></li>
+          <li><span class="step-num">7</span><span data-i18n="s6.create.7">Коли приєднається щонайменше один гравець, натисніть <strong>«Розпочати гонку»</strong>.</span></li>
         </ol>
-        <div class="why-box"><strong>Важливо</strong><p>Лише хост може розпочати гонку та запустити повторний заїзд.</p></div>
+        <div class="why-box"><strong data-i18n="s6.create.why.label">Важливо</strong><p data-i18n="s6.create.why.text">Лише хост може розпочати гонку та запустити повторний заїзд.</p></div>
       </div>
 
       <div class="item">
-        <div class="item-top"><h3 class="md-typescale-title-medium">Приєднання до кімнати</h3><span class="badge todo">Гість</span></div>
+        <div class="item-top"><h3 class="md-typescale-title-medium" data-i18n="s6.join.title">Приєднання до кімнати</h3><span class="badge todo" data-i18n="s6.join.badge">Гість</span></div>
         <ol class="priority-list">
-          <li><span class="step-num">1</span><span>Введіть нікнейм і оберіть <strong>«Онлайн»</strong>.</span></li>
-          <li><span class="step-num">2</span><span>Відкрийте вкладку <strong>«Приєднатись»</strong>.</span></li>
-          <li><span class="step-num">3</span><span>Введіть код кімнати й натисніть кнопку входу або виберіть кімнату зі списку <strong>«Відкриті кімнати»</strong>.</span></li>
-          <li><span class="step-num">4</span><span>Дочекайтеся, поки хост розпочне гонку.</span></li>
+          <li><span class="step-num">1</span><span data-i18n="s6.join.1">Введіть нікнейм і оберіть <strong>«Онлайн»</strong>.</span></li>
+          <li><span class="step-num">2</span><span data-i18n="s6.join.2">Відкрийте вкладку <strong>«Приєднатись»</strong>.</span></li>
+          <li><span class="step-num">3</span><span data-i18n="s6.join.3">Введіть код кімнати й натисніть кнопку входу або виберіть кімнату зі списку <strong>«Відкриті кімнати»</strong>.</span></li>
+          <li><span class="step-num">4</span><span data-i18n="s6.join.4">Дочекайтеся, поки хост розпочне гонку.</span></li>
         </ol>
-        <div class="why-box"><strong>Зверніть увагу</strong><p>Закриті кімнати доступні лише за кодом. Якщо кімната заповнена, гонка вже почалася або код неправильний, приєднатися не вдасться.</p></div>
+        <div class="why-box"><strong data-i18n="s6.join.why.label">Зверніть увагу</strong><p data-i18n="s6.join.why.text">Закриті кімнати доступні лише за кодом. Якщо кімната заповнена, гонка вже почалася або код неправильний, приєднатися не вдасться.</p></div>
       </div>
     </section>
 
     <!-- RESULTS -->
     <section id="results" aria-labelledby="results-title">
-      <div class="section-header"><span class="material-symbols-outlined">query_stats</span><h2 id="results-title" class="md-typescale-title-large">7. Результати й аналіз</h2></div>
-      <p class="muted" style="margin:0 0 14px">Після фінішу доступні дві вкладки:</p>
+      <div class="section-header"><span class="material-symbols-outlined">query_stats</span><h2 id="results-title" class="md-typescale-title-large" data-i18n="s7.title">7. Результати й аналіз</h2></div>
+      <p class="muted" style="margin:0 0 14px" data-i18n="s7.lead">Після фінішу доступні дві вкладки:</p>
       <div class="card-grid">
-        <div class="md-card"><div class="card-icon"><span class="material-symbols-outlined">emoji_events</span></div><h3 class="md-typescale-title-medium">Результати</h3><p class="muted">Місце кожного гравця, швидкість у SPM та точність.</p></div>
-        <div class="md-card"><div class="card-icon"><span class="material-symbols-outlined">show_chart</span></div><h3 class="md-typescale-title-medium">Аналіз</h3><p class="muted">Крива швидкості, ритмічність, найчастіші помилки, повільні пари символів і рекомендована вправа.</p></div>
+        <div class="md-card"><div class="card-icon"><span class="material-symbols-outlined">emoji_events</span></div><h3 class="md-typescale-title-medium" data-i18n="s7.protocol.title">Результати</h3><p class="muted" data-i18n="s7.protocol.desc">Місце кожного гравця, швидкість у SPM та точність.</p></div>
+        <div class="md-card"><div class="card-icon"><span class="material-symbols-outlined">show_chart</span></div><h3 class="md-typescale-title-medium" data-i18n="s7.analysis.title">Аналіз</h3><p class="muted" data-i18n="s7.analysis.desc">Крива швидкості, ритмічність, найчастіші помилки, повільні пари символів і рекомендована вправа.</p></div>
       </div>
 
       <div style="margin-top:16px">
-        <p class="muted" style="margin:0 0 10px">Після локальної гонки можна:</p>
+        <p class="muted" style="margin:0 0 10px" data-i18n="s7.after.lead">Після локальної гонки можна:</p>
         <ul class="checklist">
-          <li><span class="check-icon material-symbols-outlined">replay</span><span><strong>Повторити вправу</strong> кнопкою «Повторити» або клавішею <span class="kbd">R</span></span></li>
-          <li><span class="check-icon material-symbols-outlined">skip_next</span><span><strong>Перейти далі</strong> кнопкою «Наступна вправа» (у «Бібліотеці знань» — «Наступний урок») або клавішею <span class="kbd">J</span></span></li>
-          <li><span class="check-icon material-symbols-outlined">add</span><span><strong>Повернутися до вибору</strong> кнопкою «Нова вправа» або клавішею <span class="kbd">N</span></span></li>
+          <li><span class="check-icon material-symbols-outlined">replay</span><span data-i18n="s7.after.1"><strong>Повторити вправу</strong> кнопкою «Повторити» або клавішею <span class="kbd">R</span></span></li>
+          <li><span class="check-icon material-symbols-outlined">skip_next</span><span data-i18n="s7.after.2"><strong>Перейти далі</strong> кнопкою «Наступна вправа» (у «Бібліотеці знань» — «Наступний урок») або клавішею <span class="kbd">J</span></span></li>
+          <li><span class="check-icon material-symbols-outlined">add</span><span data-i18n="s7.after.3"><strong>Повернутися до вибору</strong> кнопкою «Нова вправа» або клавішею <span class="kbd">N</span></span></li>
         </ul>
       </div>
     </section>
 
     <!-- TRAINING METER -->
     <section id="meter" aria-labelledby="meter-title">
-      <div class="section-header"><span class="material-symbols-outlined">battery_charging_full</span><h2 id="meter-title" class="md-typescale-title-large">8. Заряд тренування</h2></div>
+      <div class="section-header"><span class="material-symbols-outlined">battery_charging_full</span><h2 id="meter-title" class="md-typescale-title-large" data-i18n="s8.title">8. Заряд тренування</h2></div>
       <div class="item">
-        <p class="muted" style="margin:0 0 12px">
+        <p class="muted" style="margin:0 0 12px" data-i18n="s8.p1">
           Індикатор <strong>«Заряд тренування»</strong> показує денну активність від 0 до 100%. Він зростає після завершених
           заїздів і якісного набору та оновлюється щодня. Дані зберігаються лише в поточному браузері.
         </p>
-        <p class="muted" style="margin:0 0 10px">Крім відсотка, індикатор показує:</p>
+        <p class="muted" style="margin:0 0 10px" data-i18n="s8.p2">Крім відсотка, індикатор показує:</p>
         <ul class="checklist">
-          <li><span class="check-icon material-symbols-outlined">local_fire_department</span><span><strong>🔥 Серію днів</strong> — скільки днів поспіль ви тренувалися.</span></li>
-          <li><span class="check-icon material-symbols-outlined">bar_chart</span><span><strong>Деталі дня</strong> — кількість заїздів, набраних символів, найкращу швидкість (SPM) і чисті заїзди.</span></li>
-          <li><span class="check-icon material-symbols-outlined">restart_alt</span><span><strong>Кнопку «Скинути»</strong> — обнуляє прогрес поточного дня (серія днів при цьому зберігається).</span></li>
+          <li><span class="check-icon material-symbols-outlined">local_fire_department</span><span data-i18n="s8.li1"><strong>🔥 Серію днів</strong> — скільки днів поспіль ви тренувалися.</span></li>
+          <li><span class="check-icon material-symbols-outlined">bar_chart</span><span data-i18n="s8.li2"><strong>Деталі дня</strong> — кількість заїздів, набраних символів, найкращу швидкість (SPM) і чисті заїзди.</span></li>
+          <li><span class="check-icon material-symbols-outlined">restart_alt</span><span data-i18n="s8.li3"><strong>Кнопку «Скинути»</strong> — обнуляє прогрес поточного дня (серія днів при цьому зберігається).</span></li>
         </ul>
-        <div class="why-box"><strong>Бонус</strong><p>Коли денну ціль (100%) виконано, кожен наступний заїзд додає <strong>бонусні</strong> заїзди понад норму.</p></div>
+        <div class="why-box"><strong data-i18n="s8.bonus.label">Бонус</strong><p data-i18n="s8.bonus.text">Коли денну ціль (100%) виконано, кожен наступний заїзд додає <strong>бонусні</strong> заїзди понад норму.</p></div>
       </div>
     </section>
 
     <!-- RECOMMENDATIONS -->
     <section id="tips" aria-labelledby="tips-title">
-      <div class="section-header"><span class="material-symbols-outlined">tips_and_updates</span><h2 id="tips-title" class="md-typescale-title-large">9. Рекомендації</h2></div>
+      <div class="section-header"><span class="material-symbols-outlined">tips_and_updates</span><h2 id="tips-title" class="md-typescale-title-large" data-i18n="s9.title">9. Рекомендації</h2></div>
       <ul class="checklist">
-        <li><span class="check-icon material-symbols-outlined">verified</span><span><strong>Спочатку точність</strong> — працюйте над точністю, а потім збільшуйте швидкість.</span></li>
-        <li><span class="check-icon material-symbols-outlined">visibility_off</span><span><strong>Без погляду на клавіатуру</strong> — тримайте очі на екрані та використовуйте всі пальці.</span></li>
-        <li><span class="check-icon material-symbols-outlined">timer</span><span><strong>Регулярність</strong> — тренуйтеся короткими регулярними сесіями.</span></li>
-        <li><span class="check-icon material-symbols-outlined">insights</span><span><strong>Аналізуйте</strong> — після кожного заїзду переглядайте вкладку «Аналіз» і повторюйте рекомендовані вправи.</span></li>
-        <li><span class="check-icon material-symbols-outlined">wifi</span><span><strong>Для онлайн-гри</strong> — використовуйте стабільне з’єднання та не закривайте вкладку до завершення гонки.</span></li>
+        <li><span class="check-icon material-symbols-outlined">verified</span><span data-i18n="s9.1"><strong>Спочатку точність</strong> — працюйте над точністю, а потім збільшуйте швидкість.</span></li>
+        <li><span class="check-icon material-symbols-outlined">visibility_off</span><span data-i18n="s9.2"><strong>Без погляду на клавіатуру</strong> — тримайте очі на екрані та використовуйте всі пальці.</span></li>
+        <li><span class="check-icon material-symbols-outlined">timer</span><span data-i18n="s9.3"><strong>Регулярність</strong> — тренуйтеся короткими регулярними сесіями.</span></li>
+        <li><span class="check-icon material-symbols-outlined">insights</span><span data-i18n="s9.4"><strong>Аналізуйте</strong> — після кожного заїзду переглядайте вкладку «Аналіз» і повторюйте рекомендовані вправи.</span></li>
+        <li><span class="check-icon material-symbols-outlined">wifi</span><span data-i18n="s9.5"><strong>Для онлайн-гри</strong> — використовуйте стабільне з’єднання та не закривайте вкладку до завершення гонки.</span></li>
       </ul>
     </section>
 
     <!-- LINKS -->
     <section id="links" aria-labelledby="links-title">
-      <div class="section-header"><span class="material-symbols-outlined">link</span><h2 id="links-title" class="md-typescale-title-large">Корисні посилання</h2></div>
+      <div class="section-header"><span class="material-symbols-outlined">link</span><h2 id="links-title" class="md-typescale-title-large" data-i18n="links.title">Корисні посилання</h2></div>
       <div class="links-grid">
-        <a class="link-card" href="https://typing-race-2026-chi.vercel.app/" target="_blank" rel="noopener"><span class="material-symbols-outlined">open_in_new</span><span><strong>Відкрити застосунок</strong><span>Touch Type Race у браузері</span></span></a>
+        <a class="link-card" data-app-link href="https://typing-race-2026-chi.vercel.app/" target="_blank" rel="noopener"><span class="material-symbols-outlined">open_in_new</span><span><strong data-i18n="links.app.title">Відкрити застосунок</strong><span data-i18n="links.app.desc">Touch Type Race у браузері</span></span></a>
       </div>
     </section>
   </main>
 
   <footer>
-    <p class="md-typescale-body-small">Touch Type Race · інструкція користувача · джерело: <code>docs/USER_GUIDE.md</code></p>
+    <p class="md-typescale-body-small" data-i18n="footer.text">Touch Type Race · інструкція користувача · джерело: <code>docs/USER_GUIDE.md</code></p>
   </footer>
 
-  <div class="snackbar" id="snackbar" role="status" aria-live="polite"></div>
-
   <script type="module">
-    const snackbar = document.getElementById('snackbar');
-    let snackTimer;
-    function toast(msg) {
-      snackbar.textContent = msg;
-      snackbar.classList.add('show');
-      clearTimeout(snackTimer);
-      snackTimer = setTimeout(() => snackbar.classList.remove('show'), 2600);
+    /**
+     * Three locales in one file, switched at runtime — the same behaviour as the
+     * app, where changing language never reloads the page.
+     *
+     * Module titles inside the Academy are content, not interface: the Ukrainian
+     * course is named in Ukrainian, the English one in English. They stay as they
+     * are in every locale, which is what s4.modules.note tells the reader.
+     */
+    const DICT = {
+      uk: {
+        'doc.title': 'Touch Type Race — інструкція користувача',
+        'doc.description': 'Як користуватися вебтренажером сенсорного друку Touch Type Race: режими, джерела тексту, програма тренування, онлайн-гонка, аналіз результатів.',
+        'lang.switcher.aria': 'Мова інтерфейсу',
+        'brand.subtitle': 'Інструкція користувача',
+        'nav.modes': 'Режими',
+        'nav.sources': 'Тексти',
+        'nav.program': 'Програма',
+        'nav.online': 'Онлайн',
+        'nav.start': 'Почати',
+        'hero.kicker': 'Вебтренажер сенсорного друку',
+        'hero.title': 'Як користуватися Touch Type Race',
+        'hero.lead': 'Touch Type Race — вебтренажер сенсорного друку. Тренуйтеся самостійно, змагайтеся з ботом або з іншими гравцями онлайн. Ця сторінка проведе вас від першого запуску до аналізу результатів.',
+        'hero.chip.langs': 'UA · EN · PL',
+        'hero.chip.modes': 'Соло · Бот · Онлайн',
+        'hero.chip.analysis': 'Аналіз швидкості та точності',
+        'hero.cta.start': 'Почати роботу',
+        'hero.cta.app': 'Відкрити застосунок',
+        's1.title': '1. Початок роботи',
+        's1.step1': '<strong>Відкрийте застосунок у браузері</strong> <a data-app-link href="https://typing-race-2026-chi.vercel.app/" target="_blank" rel="noopener">typing-race-2026-chi.vercel.app</a>',
+        's1.step2': '<strong>За потреби перемкніть тему</strong> — світлу або темну у верхній частині сторінки.',
+        's1.step3': '<strong>Введіть ім’я</strong> у полі «Ваш нікнейм».',
+        's1.step4': '<strong>Оберіть режим змагання</strong> та джерело тексту.',
+        's1.step5': '<strong>Налаштуйте звук</strong> і натисніть кнопку початку заїзду.',
+        's1.note': 'Під час першого тренування краще обрати режим <strong>«Соло»</strong> та коротку вправу з <strong>«Академії»</strong>.',
+        's2.title': '2. Режими змагання',
+        's2.solo.title': 'Соло',
+        's2.solo.desc': 'Самостійне тренування без суперника.',
+        's2.bot.title': 'Проти AI',
+        's2.bot.desc': 'Гонка з ботом. Перед стартом оберіть його швидкість.',
+        's2.online.title': 'Онлайн',
+        's2.online.desc': 'Гонка з іншими користувачами через інтернет.',
+        's2.banner': 'Якщо кнопки <strong>«Онлайн»</strong> немає, онлайн-режим недоступний у поточній версії або сервер тимчасово не підключений. Інші режими продовжують працювати.',
+        's3.title': '3. Джерела тексту',
+        's3.academy.title': 'Академія',
+        's3.academy.desc': 'Структуровані вправи українською, англійською або польською. Оберіть мову, модуль і вправу.',
+        's3.tutor.title': 'Тренажер',
+        's3.tutor.desc': 'Послідовний курс сенсорного набору. Прогрес можна експортувати у файл і згодом відновити або об’єднати через імпорт.',
+        's3.knowledge.title': 'Бібліотека знань',
+        's3.knowledge.desc': 'Навчальні тексти, згруповані за темами.',
+        's3.file.title': 'З файлу',
+        's3.file.desc': 'Власний текст із файлу <code>.txt</code> або <code>.md</code>.',
+        's4.title': '4. Програма тренування',
+        's4.intro': 'Академія — не список, який треба «пройти», а послідовність із чотирьох кроків. Порядок і вимірюваний критерій переходу дають більше, ніж кількість зроблених вправ. Швидкість нижче вказана в <strong>SPM</strong> — символів за хвилину, тій самій величині, яку застосунок показує після кожного заїзду.',
+        's4.step1.title': 'Крок 1. Механіка без слів',
+        's4.step1.badge': 'Основа',
+        's4.step1.lead': 'Патерни базового ряду й окремих пальців. Саме ці рухи потім несуть будь-який текст.',
+        's4.step1.li1': '<strong>ЙЦУКЕН — «Початкова школа»</strong>, 6 вправ: Базовий ряд → Ритм ряду → Дзеркальні пари → Відкриті склади → Слова 3 літери → Нижній ряд: м с т.',
+        's4.step1.li2': '<strong>Латиниця — Elementary</strong>, далі п’ять модулів чистої механіки: Straight Lines, Mirror Patterns, Alternating Hands, Finger Isolation, Rhythm &amp; Disruption. Це 20 вправ на <code>asdf jkl;</code> — механіка розкладки, а не англійська мова, тож вони працюють для всіх, хто друкує латиницею.',
+        's4.step1.li3': '<strong>Polski — Szkoła podstawowa</strong>, ті самі шість кроків польською; після них окремий модуль <em>Diakrytyki: mechanika Option/AltGr</em> (12 вправ).',
+        's4.step1.why.label': 'Навіщо',
+        's4.step1.why.text': 'Пальці вчаться повертатися у вихідну позицію самі. Поки цього немає, кожне слово доводиться складати очима.',
+        's4.step2.title': 'Крок 2. Слова і речення',
+        's4.step2.badge': 'Зв’язування',
+        's4.step2.text': 'Рухи зв’язуються в безперервний набір: «Перші слова» → «Голосні та закінчення» → «Унікальні літери» (українська), Full Keyboard → Words &amp; Sentences (English), Podstawy i podwójne → Znaki specjalne → Pełne zdania (polski).',
+        's4.step3.title': 'Крок 3. Слабкі місця',
+        's4.step3.badge': 'Прицільно',
+        's4.step3.text': 'Модулі під конкретну складність, а не «ще трохи тексту»: скупчення приголосних і кластери, рідкісні літери, подвоєння та регістр, пунктуація й цифри, ритм. В англійському курсі до них додаються Home-row Rolls, Alternation Rhythm, Vertical Jumps, Same-finger Friction і Production Patterns — по чотири вправи в кожному.',
+        's4.step4.title': 'Крок 4. Перенесення у справжній текст',
+        's4.step4.badge': 'Перевірка',
+        's4.step4.text': 'Навичка чогось варта лише тоді, коли працює поза знайомою вправою: радіодиктанти, Гімн, Civic Classics, польські диктанди, Бібліотека знань — і заїзд у режимі «Соло», «Проти AI» чи «Онлайн» як контроль.',
+        's4.results.heading': 'Які результати вважати достатніми',
+        's4.tier1.title': 'Освоєння руху',
+        's4.tier1.text': '<strong>80–150 SPM</strong> · точність <strong>≥ 96%</strong>. Темп «Мудрого Слона». Швидкість тут не мета — мета в тому, щоб не підглядати на клавіатуру.',
+        's4.tier2.title': 'Впевнена механіка',
+        's4.tier2.text': '<strong>150–250 SPM</strong> · точність <strong>≥ 97%</strong>. Рухи вже не потребують окремої уваги.',
+        's4.tier3.title': 'Робочий рівень',
+        's4.tier3.text': '<strong>225–300 SPM</strong> · точність <strong>≥ 97%</strong>, не більше однієї помилки на коротку вправу. Темп «Швидкої Зебри».',
+        's4.tier4.title': 'Високий рівень',
+        's4.tier4.text': '<strong>375–475 SPM</strong> · точність <strong>≥ 98%</strong>, на механіці — <strong>нуль помилок</strong>. Темп «Чорної Пантери».',
+        's4.pass.label': 'Вправа пройдена, коли',
+        's4.pass.text': 'ви <strong>двічі-тричі підряд</strong> дотягнули цільову швидкість свого етапу з не більш ніж однією помилкою — і не дивлячись на клавіатуру. Один вдалий прохід — випадковість, три — навичка.',
+        's4.horizon': 'Далі за цією шкалою існує рівень <strong>550 SPM і вище</strong>. Він досяжний, але не є метою перших місяців: там механіка вже не тримається на увазі, а працює сама.',
+        's4.session.heading': 'Одне заняття',
+        's4.session.1': '<strong>Розігрів — 3 хв.</strong> Одна вже знайома вправа механіки.',
+        's4.session.2': '<strong>Цільова вправа — 7 хв.</strong> Одна нова вправа або ваше слабке поєднання.',
+        's4.session.3': '<strong>Закріплення — 5 хв.</strong> Та сама вправа до двох-трьох чистих проходів.',
+        's4.session.4': '<strong>Перенесення — 3–5 хв.</strong> Короткий текст із Бібліотеки знань або заїзд «Соло».',
+        's4.note.break': 'Підхід — 15–25 хвилин, після нього <strong>перерва обов’язкова</strong>: від десяти хвилин до кількох годин. Два підходи з перервою дають більше, ніж година без неї. Якщо вправа не йде після кількох спокійних спроб у двох заняттях — перейдіть до сусідньої, а до складної повернітеся наступного дня. Рух часто дозріває саме за час паузи.',
+        's4.note.block': 'Тримайте перемикач у стані <strong>«Помилки: блок»</strong> (він такий за замовчуванням) — він не дає проскочити помилку далі й одразу показує символ, який треба виправити.',
+        's4.note.meter': 'Денну ціль «Заряду тренування» закриває приблизно 500 символів вправ Академії — це 7–8 коротких вправ механіки. Тобто індикатор міряє <strong>регулярність</strong>, а не обсяг: закритий день не означає, що на сьогодні досить.',
+        's4.map.heading': 'Що видно в «Аналізі» → яку вправу брати',
+        's4.map.th1': 'Симптом',
+        's4.map.th2': 'Модуль Академії',
+        's4.map.r1': 'Помилки в <code>нн</code>, <code>тт</code>, <code>-ття</code>, <code>-ться</code>',
+        's4.map.r2': 'Затинання на <code>стр</code>, <code>здр</code>, <code>ств</code>, <code>дств</code>',
+        's4.map.r3': 'Рідкісні <code>ґ</code>, <code>є</code>, <code>ї</code>, апостроф',
+        's4.map.r4': '<code>th</code>, <code>ing</code>, <code>tion</code>, <code>re/er</code>',
+        's4.map.r5': '<code>q</code>, <code>x</code>, <code>z</code>, <code>j</code>, <code>k</code>',
+        's4.map.r6': 'Мікропаузи на одному пальці: <code>un/nu</code>, <code>ol/lo</code>, <code>my/ym</code>',
+        's4.map.r7': '<code>ą</code>, <code>ę</code>, <code>ł</code>, <code>ó</code>, <code>ś</code>, <code>ż</code>, <code>ź</code>, <code>ć</code>, <code>ń</code>',
+        's4.map.r8': '<code>prz</code>, <code>szcz</code>, <code>rz</code>, <code>cz</code>',
+        's4.map.r9': 'Цифри, дужки, лапки, дефіси',
+        's4.map.r10': 'Нерівний ритм, різкі провали швидкості',
+        's4.map.r11': 'Великі літери, абревіатури, Shift',
+        's4.map.footer': 'Наступне заняття починайте з 3–5 хвилин саме на слабке поєднання. Проходити весь курс заново через одну проблемну пару символів не потрібно.',
+        's4.modules.note': 'Назви модулів наведені так, як вони підписані в самому курсі: український курс має українські назви, англійський — англійські, польський — польські. Вони не перекладаються разом з інтерфейсом.',
+        's5.title': '5. Як проходить заїзд',
+        's5.step1': '<strong>Дочекайтеся завершення відліку</strong> після старту.',
+        's5.step2': '<strong>Клацніть у поле набору</strong>, якщо курсор не активний.',
+        's5.step3': '<strong>Друкуйте показаний текст</strong> у тому самому регістрі та з усіма розділовими знаками.',
+        's5.step4': '<strong>Стежте за прогресом</strong>, швидкістю та точністю.',
+        's5.step5': '<strong>Щоб припинити заїзд раніше</strong>, натисніть «Закінчити достроково».',
+        's5.note': 'Для польських та інших спеціальних символів використовуйте звичну клавіатурну розкладку з <strong>Option</strong> або <strong>AltGr</strong>.',
+        's6.title': '6. Онлайн-гонка',
+        's6.create.title': 'Створення кімнати',
+        's6.create.badge': 'Хост',
+        's6.create.1': 'Введіть нікнейм і оберіть <strong>«Онлайн»</strong>.',
+        's6.create.2': 'Відкрийте вкладку <strong>«Створити»</strong>.',
+        's6.create.3': 'Виберіть відкриту або закриту кімнату.',
+        's6.create.4': 'Виберіть максимальну кількість гравців: <strong>2, 4 або 6</strong>.',
+        's6.create.5': 'Оберіть текст і натисніть <strong>«Створити кімнату»</strong>.',
+        's6.create.6': 'Скопіюйте п’ятизначний код і передайте його іншим учасникам.',
+        's6.create.7': 'Коли приєднається щонайменше один гравець, натисніть <strong>«Розпочати гонку»</strong>.',
+        's6.create.why.label': 'Важливо',
+        's6.create.why.text': 'Лише хост може розпочати гонку та запустити повторний заїзд.',
+        's6.join.title': 'Приєднання до кімнати',
+        's6.join.badge': 'Гість',
+        's6.join.1': 'Введіть нікнейм і оберіть <strong>«Онлайн»</strong>.',
+        's6.join.2': 'Відкрийте вкладку <strong>«Приєднатись»</strong>.',
+        's6.join.3': 'Введіть код кімнати й натисніть кнопку входу або виберіть кімнату зі списку <strong>«Відкриті кімнати»</strong>.',
+        's6.join.4': 'Дочекайтеся, поки хост розпочне гонку.',
+        's6.join.why.label': 'Зверніть увагу',
+        's6.join.why.text': 'Закриті кімнати доступні лише за кодом. Якщо кімната заповнена, гонка вже почалася або код неправильний, приєднатися не вдасться.',
+        's7.title': '7. Результати й аналіз',
+        's7.lead': 'Після фінішу доступні дві вкладки:',
+        's7.protocol.title': 'Результати',
+        's7.protocol.desc': 'Місце кожного гравця, швидкість у SPM та точність.',
+        's7.analysis.title': 'Аналіз',
+        's7.analysis.desc': 'Крива швидкості, ритмічність, найчастіші помилки, повільні пари символів і рекомендована вправа.',
+        's7.after.lead': 'Після локальної гонки можна:',
+        's7.after.1': '<strong>Повторити вправу</strong> кнопкою «Повторити» або клавішею <span class="kbd">R</span>',
+        's7.after.2': '<strong>Перейти далі</strong> кнопкою «Наступна вправа» (у «Бібліотеці знань» — «Наступний урок») або клавішею <span class="kbd">J</span>',
+        's7.after.3': '<strong>Повернутися до вибору</strong> кнопкою «Нова вправа» або клавішею <span class="kbd">N</span>',
+        's8.title': '8. Заряд тренування',
+        's8.p1': 'Індикатор <strong>«Заряд тренування»</strong> показує денну активність від 0 до 100%. Він зростає після завершених заїздів і якісного набору та оновлюється щодня. Дані зберігаються лише в поточному браузері.',
+        's8.p2': 'Крім відсотка, індикатор показує:',
+        's8.li1': '<strong>🔥 Серію днів</strong> — скільки днів поспіль ви тренувалися.',
+        's8.li2': '<strong>Деталі дня</strong> — кількість заїздів, набраних символів, найкращу швидкість (SPM) і чисті заїзди.',
+        's8.li3': '<strong>Кнопку «Скинути»</strong> — обнуляє прогрес поточного дня (серія днів при цьому зберігається).',
+        's8.bonus.label': 'Бонус',
+        's8.bonus.text': 'Коли денну ціль (100%) виконано, кожен наступний заїзд додає <strong>бонусні</strong> заїзди понад норму.',
+        's9.title': '9. Рекомендації',
+        's9.1': '<strong>Спочатку точність</strong> — працюйте над точністю, а потім збільшуйте швидкість.',
+        's9.2': '<strong>Без погляду на клавіатуру</strong> — тримайте очі на екрані та використовуйте всі пальці.',
+        's9.3': '<strong>Регулярність</strong> — тренуйтеся короткими регулярними сесіями.',
+        's9.4': '<strong>Аналізуйте</strong> — після кожного заїзду переглядайте вкладку «Аналіз» і повторюйте рекомендовані вправи.',
+        's9.5': '<strong>Для онлайн-гри</strong> — використовуйте стабільне з’єднання та не закривайте вкладку до завершення гонки.',
+        'links.title': 'Корисні посилання',
+        'links.app.title': 'Відкрити застосунок',
+        'links.app.desc': 'Touch Type Race у браузері',
+        'footer.text': 'Touch Type Race · інструкція користувача · джерело: <code>docs/USER_GUIDE.md</code>',
+      },
+
+      pl: {
+        'doc.title': 'Touch Type Race — instrukcja użytkownika',
+        'doc.description': 'Jak korzystać z Touch Type Race: tryby, źródła tekstu, program treningu, wyścig online i analiza wyników.',
+        'lang.switcher.aria': 'Język interfejsu',
+        'brand.subtitle': 'Instrukcja użytkownika',
+        'nav.modes': 'Tryby',
+        'nav.sources': 'Teksty',
+        'nav.program': 'Program',
+        'nav.online': 'Online',
+        'nav.start': 'Zacznij',
+        'hero.kicker': 'Trenażer sensorycznej metody pisania',
+        'hero.title': 'Jak korzystać z Touch Type Race',
+        'hero.lead': 'Touch Type Race to trenażer sensorycznej metody pisania. Ćwicz samodzielnie, ścigaj się z botem albo z innymi graczami online. Ta strona przeprowadzi Cię od pierwszego uruchomienia do analizy wyników.',
+        'hero.chip.langs': 'UA · EN · PL',
+        'hero.chip.modes': 'Solo · Bot · Online',
+        'hero.chip.analysis': 'Analiza prędkości i dokładności',
+        'hero.cta.start': 'Zacznij',
+        'hero.cta.app': 'Otwórz aplikację',
+        's1.title': '1. Pierwsze kroki',
+        's1.step1': '<strong>Otwórz aplikację w przeglądarce</strong> <a data-app-link href="https://typing-race-2026-chi.vercel.app/" target="_blank" rel="noopener">typing-race-2026-chi.vercel.app</a>',
+        's1.step2': '<strong>W razie potrzeby przełącz motyw</strong> — jasny albo ciemny, u góry strony.',
+        's1.step3': '<strong>Wpisz imię</strong> w polu „Twój pseudonim”.',
+        's1.step4': '<strong>Wybierz tryb rywalizacji</strong> i źródło tekstu.',
+        's1.step5': '<strong>Ustaw dźwięk</strong> i naciśnij przycisk rozpoczęcia wyścigu.',
+        's1.note': 'Na pierwszy trening najlepiej wybrać tryb <strong>„Solo”</strong> i krótkie ćwiczenie z <strong>„Akademii”</strong>.',
+        's2.title': '2. Tryby rywalizacji',
+        's2.solo.title': 'Solo',
+        's2.solo.desc': 'Samodzielny trening, bez przeciwnika.',
+        's2.bot.title': 'Przeciw AI',
+        's2.bot.desc': 'Wyścig z botem. Przed startem wybierz jego prędkość.',
+        's2.online.title': 'Online',
+        's2.online.desc': 'Wyścig z innymi użytkownikami przez internet.',
+        's2.banner': 'Jeśli przycisku <strong>„Online”</strong> nie ma, tryb online jest niedostępny w tej wersji albo serwer jest chwilowo odłączony. Pozostałe tryby działają normalnie.',
+        's3.title': '3. Źródła tekstu',
+        's3.academy.title': 'Akademia',
+        's3.academy.desc': 'Uporządkowane ćwiczenia po ukraińsku, angielsku lub polsku. Wybierz język, moduł i ćwiczenie.',
+        's3.tutor.title': 'Trener',
+        's3.tutor.desc': 'Kurs sensorycznej metody pisania, krok po kroku. Postęp można wyeksportować do pliku, a później przywrócić lub scalić przez import.',
+        's3.knowledge.title': 'Biblioteka wiedzy',
+        's3.knowledge.desc': 'Teksty edukacyjne pogrupowane tematycznie.',
+        's3.file.title': 'Z pliku',
+        's3.file.desc': 'Własny tekst z pliku <code>.txt</code> lub <code>.md</code>.',
+        's4.title': '4. Program treningu',
+        's4.intro': 'Akademia to nie lista do „odhaczenia”, tylko sekwencja czterech kroków. Kolejność i mierzalne kryterium przejścia dają więcej niż liczba zrobionych ćwiczeń. Prędkość podana jest w <strong>SPM</strong> — znakach na minutę, czyli tej samej wielkości, którą aplikacja pokazuje po każdym wyścigu.',
+        's4.step1.title': 'Krok 1. Mechanika bez słów',
+        's4.step1.badge': 'Podstawa',
+        's4.step1.lead': 'Wzorce rzędu domowego i pojedynczych palców. To właśnie te ruchy niosą potem każdy tekst.',
+        's4.step1.li1': '<strong>ЙЦУКЕН — „Початкова школа”</strong>, 6 ćwiczeń: Базовий ряд → Ритм ряду → Дзеркальні пари → Відкриті склади → Слова 3 літери → Нижній ряд: м с т.',
+        's4.step1.li2': '<strong>Alfabet łaciński — Elementary</strong>, dalej pięć modułów czystej mechaniki: Straight Lines, Mirror Patterns, Alternating Hands, Finger Isolation, Rhythm &amp; Disruption. To 20 ćwiczeń na <code>asdf jkl;</code> — mechanika układu klawiatury, a nie język angielski, więc działają dla każdego, kto pisze łacinką.',
+        's4.step1.li3': '<strong>Polski — Szkoła podstawowa</strong>, te same sześć kroków po polsku; po nich osobny moduł <em>Diakrytyki: mechanika Option/AltGr</em> (12 ćwiczeń).',
+        's4.step1.why.label': 'Po co',
+        's4.step1.why.text': 'Palce uczą się same wracać na pozycję wyjściową. Dopóki tego nie potrafią, każde słowo trzeba składać wzrokiem.',
+        's4.step2.title': 'Krok 2. Słowa i zdania',
+        's4.step2.badge': 'Łączenie',
+        's4.step2.text': 'Ruchy łączą się w płynne pisanie: „Перші слова” → „Голосні та закінчення” → „Унікальні літери” (ukraiński), Full Keyboard → Words &amp; Sentences (angielski), Podstawy i podwójne → Znaki specjalne → Pełne zdania (polski).',
+        's4.step3.title': 'Krok 3. Słabe punkty',
+        's4.step3.badge': 'Celowo',
+        's4.step3.text': 'Moduły pod konkretną trudność, a nie „jeszcze trochę tekstu”: zbitki spółgłoskowe i klastry, rzadkie litery, podwojenia i wielkie litery, interpunkcja i cyfry, rytm. W kursie angielskim dochodzą Home-row Rolls, Alternation Rhythm, Vertical Jumps, Same-finger Friction i Production Patterns — po cztery ćwiczenia w każdym.',
+        's4.step4.title': 'Krok 4. Przeniesienie na prawdziwy tekst',
+        's4.step4.badge': 'Sprawdzian',
+        's4.step4.text': 'Umiejętność jest coś warta dopiero wtedy, gdy działa poza znanym ćwiczeniem: dyktanda, hymn, Civic Classics, polskie dyktanda, Biblioteka wiedzy — oraz wyścig w trybie „Solo”, „Przeciw AI” albo „Online” jako kontrola.',
+        's4.results.heading': 'Jakie wyniki uznać za wystarczające',
+        's4.tier1.title': 'Opanowanie ruchu',
+        's4.tier1.text': '<strong>80–150 SPM</strong> · dokładność <strong>≥ 96%</strong>. Tempo „Mądrego Słonia”. Prędkość nie jest tu celem — celem jest nie zaglądać na klawiaturę.',
+        's4.tier2.title': 'Pewna mechanika',
+        's4.tier2.text': '<strong>150–250 SPM</strong> · dokładność <strong>≥ 97%</strong>. Ruchy nie wymagają już osobnej uwagi.',
+        's4.tier3.title': 'Poziom roboczy',
+        's4.tier3.text': '<strong>225–300 SPM</strong> · dokładność <strong>≥ 97%</strong>, najwyżej jeden błąd na krótkie ćwiczenie. Tempo „Szybkiej Zebry”.',
+        's4.tier4.title': 'Poziom wysoki',
+        's4.tier4.text': '<strong>375–475 SPM</strong> · dokładność <strong>≥ 98%</strong>, a na mechanice — <strong>zero błędów</strong>. Tempo „Czarnej Pantery”.',
+        's4.pass.label': 'Ćwiczenie zaliczone, gdy',
+        's4.pass.text': 'osiągniesz docelową prędkość swojego etapu <strong>dwa lub trzy razy z rzędu</strong>, najwyżej z jednym błędem — i bez patrzenia na klawiaturę. Jedno udane podejście to przypadek, trzy to umiejętność.',
+        's4.horizon': 'Dalej na tej skali jest poziom <strong>550 SPM i wyżej</strong>. Jest osiągalny, ale nie jest celem pierwszych miesięcy: tam mechanika nie trzyma się już na uwadze, tylko działa sama.',
+        's4.session.heading': 'Jedna sesja',
+        's4.session.1': '<strong>Rozgrzewka — 3 min.</strong> Jedno znane już ćwiczenie mechaniki.',
+        's4.session.2': '<strong>Ćwiczenie docelowe — 7 min.</strong> Jedno nowe ćwiczenie albo Twoje słabe połączenie.',
+        's4.session.3': '<strong>Utrwalenie — 5 min.</strong> To samo ćwiczenie do dwóch-trzech czystych przejść.',
+        's4.session.4': '<strong>Przeniesienie — 3–5 min.</strong> Krótki tekst z Biblioteki wiedzy albo wyścig „Solo”.',
+        's4.note.break': 'Podejście trwa 15–25 minut, a po nim <strong>przerwa jest konieczna</strong>: od dziesięciu minut do kilku godzin. Dwa podejścia z przerwą dają więcej niż godzina bez niej. Jeśli ćwiczenie nie wychodzi po kilku spokojnych próbach w dwóch sesjach — przejdź do sąsiedniego, a do trudnego wróć następnego dnia. Ruch często dojrzewa właśnie w czasie przerwy.',
+        's4.note.block': 'Trzymaj przełącznik w stanie <strong>„Błędy: blokowane”</strong> (tak jest domyślnie) — nie pozwala przepuścić błędu dalej i od razu pokazuje znak do poprawienia.',
+        's4.note.meter': 'Dzienny cel „Energii treningu” zamyka mniej więcej 500 znaków ćwiczeń Akademii — to 7–8 krótkich ćwiczeń mechaniki. Wskaźnik mierzy więc <strong>regularność</strong>, a nie objętość: zamknięty dzień nie znaczy, że na dziś wystarczy.',
+        's4.map.heading': 'Co widać w „Analizie” → jakie ćwiczenie wziąć',
+        's4.map.th1': 'Objaw',
+        's4.map.th2': 'Moduł Akademii',
+        's4.map.r1': 'Błędy w <code>нн</code>, <code>тт</code>, <code>-ття</code>, <code>-ться</code>',
+        's4.map.r2': 'Zacinanie na <code>стр</code>, <code>здр</code>, <code>ств</code>, <code>дств</code>',
+        's4.map.r3': 'Rzadkie <code>ґ</code>, <code>є</code>, <code>ї</code>, apostrof',
+        's4.map.r4': '<code>th</code>, <code>ing</code>, <code>tion</code>, <code>re/er</code>',
+        's4.map.r5': '<code>q</code>, <code>x</code>, <code>z</code>, <code>j</code>, <code>k</code>',
+        's4.map.r6': 'Mikropauzy na jednym palcu: <code>un/nu</code>, <code>ol/lo</code>, <code>my/ym</code>',
+        's4.map.r7': '<code>ą</code>, <code>ę</code>, <code>ł</code>, <code>ó</code>, <code>ś</code>, <code>ż</code>, <code>ź</code>, <code>ć</code>, <code>ń</code>',
+        's4.map.r8': '<code>prz</code>, <code>szcz</code>, <code>rz</code>, <code>cz</code>',
+        's4.map.r9': 'Cyfry, nawiasy, cudzysłowy, łączniki',
+        's4.map.r10': 'Nierówny rytm, nagłe spadki prędkości',
+        's4.map.r11': 'Wielkie litery, skrótowce, Shift',
+        's4.map.footer': 'Następną sesję zacznij od 3–5 minut właśnie na słabym połączeniu. Nie trzeba przechodzić całego kursu od nowa przez jedną problematyczną parę znaków.',
+        's4.modules.note': 'Nazwy modułów podane są tak, jak brzmią w samym kursie: kurs ukraiński ma nazwy ukraińskie, angielski — angielskie, polski — polskie. Nie tłumaczą się razem z interfejsem.',
+        's5.title': '5. Jak przebiega wyścig',
+        's5.step1': '<strong>Poczekaj na koniec odliczania</strong> po starcie.',
+        's5.step2': '<strong>Kliknij w pole pisania</strong>, jeśli kursor nie jest aktywny.',
+        's5.step3': '<strong>Przepisuj pokazany tekst</strong> z tą samą wielkością liter i wszystkimi znakami interpunkcyjnymi.',
+        's5.step4': '<strong>Obserwuj postęp</strong>, prędkość i dokładność.',
+        's5.step5': '<strong>Aby zakończyć wyścig wcześniej</strong>, naciśnij „Zakończ wcześniej”.',
+        's5.note': 'Do polskich i innych znaków specjalnych używaj swojego zwykłego układu klawiatury z <strong>Option</strong> albo <strong>AltGr</strong>.',
+        's6.title': '6. Wyścig online',
+        's6.create.title': 'Tworzenie pokoju',
+        's6.create.badge': 'Host',
+        's6.create.1': 'Wpisz pseudonim i wybierz <strong>„Online”</strong>.',
+        's6.create.2': 'Otwórz zakładkę <strong>„Utwórz”</strong>.',
+        's6.create.3': 'Wybierz pokój otwarty albo zamknięty.',
+        's6.create.4': 'Wybierz maksymalną liczbę graczy: <strong>2, 4 lub 6</strong>.',
+        's6.create.5': 'Wybierz tekst i naciśnij <strong>„Utwórz pokój”</strong>.',
+        's6.create.6': 'Skopiuj pięcioznakowy kod i przekaż go pozostałym uczestnikom.',
+        's6.create.7': 'Gdy dołączy co najmniej jeden gracz, naciśnij <strong>„Rozpocznij wyścig”</strong>.',
+        's6.create.why.label': 'Ważne',
+        's6.create.why.text': 'Tylko host może rozpocząć wyścig i uruchomić powtórkę.',
+        's6.join.title': 'Dołączanie do pokoju',
+        's6.join.badge': 'Gość',
+        's6.join.1': 'Wpisz pseudonim i wybierz <strong>„Online”</strong>.',
+        's6.join.2': 'Otwórz zakładkę <strong>„Dołącz”</strong>.',
+        's6.join.3': 'Wpisz kod pokoju i naciśnij przycisk wejścia albo wybierz pokój z listy <strong>„Otwarte pokoje”</strong>.',
+        's6.join.4': 'Poczekaj, aż host rozpocznie wyścig.',
+        's6.join.why.label': 'Zwróć uwagę',
+        's6.join.why.text': 'Zamknięte pokoje są dostępne tylko po kodzie. Jeśli pokój jest pełny, wyścig już się zaczął albo kod jest błędny — dołączenie się nie uda.',
+        's7.title': '7. Wyniki i analiza',
+        's7.lead': 'Po mecie dostępne są dwie zakładki:',
+        's7.protocol.title': 'Wyniki',
+        's7.protocol.desc': 'Miejsce każdego gracza, prędkość w SPM i dokładność.',
+        's7.analysis.title': 'Analiza',
+        's7.analysis.desc': 'Krzywa prędkości, rytmiczność, najczęstsze błędy, wolne pary znaków i polecane ćwiczenie.',
+        's7.after.lead': 'Po wyścigu lokalnym można:',
+        's7.after.1': '<strong>Powtórzyć ćwiczenie</strong> przyciskiem „Powtórz” albo klawiszem <span class="kbd">R</span>',
+        's7.after.2': '<strong>Przejść dalej</strong> przyciskiem „Następne ćwiczenie” (w „Bibliotece wiedzy” — „Następna lekcja”) albo klawiszem <span class="kbd">J</span>',
+        's7.after.3': '<strong>Wrócić do wyboru</strong> przyciskiem „Nowe ćwiczenie” albo klawiszem <span class="kbd">N</span>',
+        's8.title': '8. Energia treningu',
+        's8.p1': 'Wskaźnik <strong>„Energia treningu”</strong> pokazuje dzienną aktywność od 0 do 100%. Rośnie po ukończonych wyścigach i dobrym pisaniu, a odnawia się codziennie. Dane są zapisywane tylko w tej przeglądarce.',
+        's8.p2': 'Oprócz procentu wskaźnik pokazuje:',
+        's8.li1': '<strong>🔥 Serię dni</strong> — ile dni z rzędu trenowałeś.',
+        's8.li2': '<strong>Szczegóły dnia</strong> — liczbę wyścigów, napisanych znaków, najlepszą prędkość (SPM) i czyste wyścigi.',
+        's8.li3': '<strong>Przycisk „Wyzeruj”</strong> — kasuje postęp bieżącego dnia (seria dni zostaje zachowana).',
+        's8.bonus.label': 'Bonus',
+        's8.bonus.text': 'Gdy dzienny cel (100%) jest osiągnięty, każdy kolejny wyścig dolicza się jako <strong>bonusowy</strong> ponad normę.',
+        's9.title': '9. Zalecenia',
+        's9.1': '<strong>Najpierw dokładność</strong> — najpierw pracuj nad dokładnością, dopiero potem zwiększaj prędkość.',
+        's9.2': '<strong>Bez patrzenia na klawiaturę</strong> — trzymaj wzrok na ekranie i używaj wszystkich palców.',
+        's9.3': '<strong>Regularność</strong> — trenuj krótkimi, regularnymi sesjami.',
+        's9.4': '<strong>Analizuj</strong> — po każdym wyścigu zaglądaj do zakładki „Analiza” i powtarzaj polecane ćwiczenia.',
+        's9.5': '<strong>Do gry online</strong> — używaj stabilnego łącza i nie zamykaj karty przed końcem wyścigu.',
+        'links.title': 'Przydatne linki',
+        'links.app.title': 'Otwórz aplikację',
+        'links.app.desc': 'Touch Type Race w przeglądarce',
+        'footer.text': 'Touch Type Race · instrukcja użytkownika · źródło: <code>docs/USER_GUIDE.md</code>',
+      },
+
+      en: {
+        'doc.title': 'Touch Type Race — user guide',
+        'doc.description': 'How to use Touch Type Race: modes, text sources, the training programme, online races and post-race analysis.',
+        'lang.switcher.aria': 'Interface language',
+        'brand.subtitle': 'User guide',
+        'nav.modes': 'Modes',
+        'nav.sources': 'Texts',
+        'nav.program': 'Programme',
+        'nav.online': 'Online',
+        'nav.start': 'Start',
+        'hero.kicker': 'Touch typing web trainer',
+        'hero.title': 'How to use Touch Type Race',
+        'hero.lead': 'Touch Type Race is a touch typing trainer. Practise on your own, race a bot, or race other players online. This page takes you from the first launch to reading your results.',
+        'hero.chip.langs': 'UA · EN · PL',
+        'hero.chip.modes': 'Solo · Bot · Online',
+        'hero.chip.analysis': 'Speed and accuracy analysis',
+        'hero.cta.start': 'Get started',
+        'hero.cta.app': 'Open the app',
+        's1.title': '1. Getting started',
+        's1.step1': '<strong>Open the app in your browser</strong> <a data-app-link href="https://typing-race-2026-chi.vercel.app/" target="_blank" rel="noopener">typing-race-2026-chi.vercel.app</a>',
+        's1.step2': '<strong>Switch the theme if you like</strong> — light or dark, at the top of the page.',
+        's1.step3': '<strong>Enter a name</strong> in the “Your nickname” field.',
+        's1.step4': '<strong>Pick a race mode</strong> and a text source.',
+        's1.step5': '<strong>Set the sound</strong> and press the start button.',
+        's1.note': 'For your first session, pick <strong>“Solo”</strong> and a short drill from the <strong>“Academy”</strong>.',
+        's2.title': '2. Race modes',
+        's2.solo.title': 'Solo',
+        's2.solo.desc': 'Practise on your own, no opponent.',
+        's2.bot.title': 'Against AI',
+        's2.bot.desc': 'Race a bot. Choose its speed before the start.',
+        's2.online.title': 'Online',
+        's2.online.desc': 'Race other people over the internet.',
+        's2.banner': 'If there is no <strong>“Online”</strong> button, the online mode is unavailable in this build or the server is temporarily disconnected. Every other mode keeps working.',
+        's3.title': '3. Text sources',
+        's3.academy.title': 'Academy',
+        's3.academy.desc': 'Structured drills in Ukrainian, English or Polish. Pick a language, a module and a drill.',
+        's3.tutor.title': 'Tutor',
+        's3.tutor.desc': 'A touch typing course, lesson by lesson. Progress can be exported to a file and later restored or merged back on import.',
+        's3.knowledge.title': 'Knowledge library',
+        's3.knowledge.desc': 'Study texts grouped by topic.',
+        's3.file.title': 'From a file',
+        's3.file.desc': 'Your own text from a <code>.txt</code> or <code>.md</code> file.',
+        's4.title': '4. Training programme',
+        's4.intro': 'The Academy is not a list to get through but a sequence of four steps. Order and a measurable criterion for moving on matter more than the number of drills you finish. Speeds below are in <strong>SPM</strong> — symbols per minute, the same figure the app reports after every race.',
+        's4.step1.title': 'Step 1. Mechanics without words',
+        's4.step1.badge': 'Foundation',
+        's4.step1.lead': 'Home-row patterns and single-finger control. These are the movements that carry every text later on.',
+        's4.step1.li1': '<strong>ЙЦУКЕН — “Початкова школа”</strong>, 6 drills: Базовий ряд → Ритм ряду → Дзеркальні пари → Відкриті склади → Слова 3 літери → Нижній ряд: м с т.',
+        's4.step1.li2': '<strong>Latin script — Elementary</strong>, then five modules of pure mechanics: Straight Lines, Mirror Patterns, Alternating Hands, Finger Isolation, Rhythm &amp; Disruption. That is 20 drills on <code>asdf jkl;</code> — keyboard mechanics rather than English, so they work for anyone typing in Latin script.',
+        's4.step1.li3': '<strong>Polski — Szkoła podstawowa</strong>, the same six steps in Polish, followed by a separate module <em>Diakrytyki: mechanika Option/AltGr</em> (12 drills).',
+        's4.step1.why.label': 'Why',
+        's4.step1.why.text': 'The fingers learn to return to the home position by themselves. Until they do, every word has to be assembled by eye.',
+        's4.step2.title': 'Step 2. Words and sentences',
+        's4.step2.badge': 'Joining up',
+        's4.step2.text': 'Movements join into continuous typing: “Перші слова” → “Голосні та закінчення” → “Унікальні літери” (Ukrainian), Full Keyboard → Words &amp; Sentences (English), Podstawy i podwójne → Znaki specjalne → Pełne zdania (Polish).',
+        's4.step3.title': 'Step 3. Weak spots',
+        's4.step3.badge': 'Targeted',
+        's4.step3.text': 'Modules aimed at a specific difficulty rather than “a bit more text”: consonant clusters, rare letters, doubles and capitals, punctuation and numbers, rhythm. The English course adds Home-row Rolls, Alternation Rhythm, Vertical Jumps, Same-finger Friction and Production Patterns — four drills each.',
+        's4.step4.title': 'Step 4. Transfer to real text',
+        's4.step4.badge': 'Check',
+        's4.step4.text': 'A skill is worth something only once it survives outside the familiar drill: radio dictations, the anthem, Civic Classics, the Polish dictations, the Knowledge library — and a race in “Solo”, “Against AI” or “Online” as the check.',
+        's4.results.heading': 'What counts as a good enough result',
+        's4.tier1.title': 'Learning the movement',
+        's4.tier1.text': '<strong>80–150 SPM</strong> · accuracy <strong>≥ 96%</strong>. The pace of the “Wise Elephant”. Speed is not the goal here — keeping your eyes off the keyboard is.',
+        's4.tier2.title': 'Confident mechanics',
+        's4.tier2.text': '<strong>150–250 SPM</strong> · accuracy <strong>≥ 97%</strong>. The movements no longer need separate attention.',
+        's4.tier3.title': 'Working level',
+        's4.tier3.text': '<strong>225–300 SPM</strong> · accuracy <strong>≥ 97%</strong>, at most one error per short drill. The pace of the “Swift Zebra”.',
+        's4.tier4.title': 'High level',
+        's4.tier4.text': '<strong>375–475 SPM</strong> · accuracy <strong>≥ 98%</strong>, and <strong>zero errors</strong> on mechanics. The pace of the “Black Panther”.',
+        's4.pass.label': 'A drill is done when',
+        's4.pass.text': 'you hit your tier’s target speed <strong>two or three times in a row</strong> with at most one error — and without looking at the keyboard. One good run is luck; three is a skill.',
+        's4.horizon': 'Further up the same scale sits <strong>550 SPM and above</strong>. It is reachable, but it is not the goal of the first months: at that point mechanics no longer rely on attention, they simply run.',
+        's4.session.heading': 'One session',
+        's4.session.1': '<strong>Warm-up — 3 min.</strong> One mechanics drill you already know.',
+        's4.session.2': '<strong>Target drill — 7 min.</strong> One new drill, or your weak combination.',
+        's4.session.3': '<strong>Consolidation — 5 min.</strong> The same drill until two or three clean runs.',
+        's4.session.4': '<strong>Transfer — 3–5 min.</strong> A short text from the Knowledge library, or a “Solo” race.',
+        's4.note.break': 'A set runs 15–25 minutes, and the <strong>break after it is mandatory</strong>: from ten minutes to a few hours. Two sets with a break beat an hour without one. If a drill will not come after a few calm attempts across two sessions, move to the neighbouring one and return to the hard one the next day. The movement often matures during the pause.',
+        's4.note.block': 'Keep the toggle on <strong>“Errors: blocked”</strong> (that is the default) — it stops you from typing past a mistake and shows the character to fix straight away.',
+        's4.note.meter': 'Roughly 500 characters of Academy drills close the daily “Training charge” goal — 7–8 short mechanics drills. So the meter measures <strong>regularity</strong>, not volume: a closed day does not mean you are done for today.',
+        's4.map.heading': 'What the “Analysis” tab shows → which drill to take',
+        's4.map.th1': 'Symptom',
+        's4.map.th2': 'Academy module',
+        's4.map.r1': 'Errors in <code>нн</code>, <code>тт</code>, <code>-ття</code>, <code>-ться</code>',
+        's4.map.r2': 'Stalling on <code>стр</code>, <code>здр</code>, <code>ств</code>, <code>дств</code>',
+        's4.map.r3': 'Rare <code>ґ</code>, <code>є</code>, <code>ї</code>, the apostrophe',
+        's4.map.r4': '<code>th</code>, <code>ing</code>, <code>tion</code>, <code>re/er</code>',
+        's4.map.r5': '<code>q</code>, <code>x</code>, <code>z</code>, <code>j</code>, <code>k</code>',
+        's4.map.r6': 'Same-finger micro-pauses: <code>un/nu</code>, <code>ol/lo</code>, <code>my/ym</code>',
+        's4.map.r7': '<code>ą</code>, <code>ę</code>, <code>ł</code>, <code>ó</code>, <code>ś</code>, <code>ż</code>, <code>ź</code>, <code>ć</code>, <code>ń</code>',
+        's4.map.r8': '<code>prz</code>, <code>szcz</code>, <code>rz</code>, <code>cz</code>',
+        's4.map.r9': 'Numbers, brackets, quotes, hyphens',
+        's4.map.r10': 'Uneven rhythm, sharp drops in speed',
+        's4.map.r11': 'Capitals, acronyms, Shift',
+        's4.map.footer': 'Start the next session with 3–5 minutes on that weak combination. There is no need to redo the whole course because of one problematic pair.',
+        's4.modules.note': 'Module names appear exactly as they are labelled inside the course: the Ukrainian course carries Ukrainian names, the English one English, the Polish one Polish. They do not translate along with the interface.',
+        's5.title': '5. How a race runs',
+        's5.step1': '<strong>Wait for the countdown to finish</strong> after the start.',
+        's5.step2': '<strong>Click into the typing field</strong> if the cursor is not active.',
+        's5.step3': '<strong>Type the text as shown</strong>, same case, all punctuation included.',
+        's5.step4': '<strong>Watch your progress</strong>, speed and accuracy.',
+        's5.step5': '<strong>To stop the race early</strong>, press “Finish early”.',
+        's5.note': 'For Polish and other special characters, use your usual keyboard layout with <strong>Option</strong> or <strong>AltGr</strong>.',
+        's6.title': '6. Online race',
+        's6.create.title': 'Creating a room',
+        's6.create.badge': 'Host',
+        's6.create.1': 'Enter a nickname and pick <strong>“Online”</strong>.',
+        's6.create.2': 'Open the <strong>“Create”</strong> tab.',
+        's6.create.3': 'Choose an open or a private room.',
+        's6.create.4': 'Choose the maximum number of players: <strong>2, 4 or 6</strong>.',
+        's6.create.5': 'Pick a text and press <strong>“Create a room”</strong>.',
+        's6.create.6': 'Copy the five-character code and pass it to the others.',
+        's6.create.7': 'Once at least one player has joined, press <strong>“Start the race”</strong>.',
+        's6.create.why.label': 'Important',
+        's6.create.why.text': 'Only the host can start the race and launch a rerun.',
+        's6.join.title': 'Joining a room',
+        's6.join.badge': 'Guest',
+        's6.join.1': 'Enter a nickname and pick <strong>“Online”</strong>.',
+        's6.join.2': 'Open the <strong>“Join”</strong> tab.',
+        's6.join.3': 'Enter the room code and press the enter button, or pick a room from the <strong>“Open rooms”</strong> list.',
+        's6.join.4': 'Wait for the host to start the race.',
+        's6.join.why.label': 'Note',
+        's6.join.why.text': 'Private rooms are reachable by code only. If the room is full, the race has already started, or the code is wrong, joining will fail.',
+        's7.title': '7. Results and analysis',
+        's7.lead': 'Two tabs are available after the finish:',
+        's7.protocol.title': 'Results',
+        's7.protocol.desc': 'Each player’s position, speed in SPM and accuracy.',
+        's7.analysis.title': 'Analysis',
+        's7.analysis.desc': 'Speed curve, rhythm, most frequent errors, slow character pairs and a recommended drill.',
+        's7.after.lead': 'After a local race you can:',
+        's7.after.1': '<strong>Repeat the drill</strong> with the “Repeat” button or the <span class="kbd">R</span> key',
+        's7.after.2': '<strong>Move on</strong> with “Next drill” (“Next lesson” in the Knowledge library) or the <span class="kbd">J</span> key',
+        's7.after.3': '<strong>Go back to the picker</strong> with “New drill” or the <span class="kbd">N</span> key',
+        's8.title': '8. Training charge',
+        's8.p1': 'The <strong>“Training charge”</strong> meter shows the day’s activity from 0 to 100%. It grows after finished races and clean typing, and resets every day. The data lives in this browser only.',
+        's8.p2': 'Besides the percentage, the meter shows:',
+        's8.li1': '<strong>🔥 The day streak</strong> — how many days in a row you have trained.',
+        's8.li2': '<strong>Day details</strong> — races, characters typed, best speed (SPM) and clean runs.',
+        's8.li3': '<strong>The “Reset” button</strong> — clears today’s progress (the streak survives).',
+        's8.bonus.label': 'Bonus',
+        's8.bonus.text': 'Once the daily goal (100%) is met, every further race counts as a <strong>bonus</strong> run on top.',
+        's9.title': '9. Recommendations',
+        's9.1': '<strong>Accuracy first</strong> — work on accuracy, then raise the speed.',
+        's9.2': '<strong>Eyes off the keyboard</strong> — keep them on the screen and use all your fingers.',
+        's9.3': '<strong>Regularity</strong> — train in short, regular sessions.',
+        's9.4': '<strong>Analyse</strong> — after every race open the “Analysis” tab and repeat the recommended drills.',
+        's9.5': '<strong>For online play</strong> — use a stable connection and keep the tab open until the race ends.',
+        'links.title': 'Useful links',
+        'links.app.title': 'Open the app',
+        'links.app.desc': 'Touch Type Race in your browser',
+        'footer.text': 'Touch Type Race · user guide · source: <code>docs/USER_GUIDE.md</code>',
+      },
+    };
+
+    const LANGS = ['uk', 'pl', 'en'];
+    /**
+     * Same storage key as the app (utils/uiLanguage.ts). On Vercel the guide is
+     * served from the same origin, so opening it from a Polish interface lands
+     * on the Polish guide without carrying anything in the URL. On GitHub Pages
+     * the origin differs and the key is simply the guide's own.
+     */
+    const STORAGE_KEY = 'ttr_ui_lang';
+    const APP_URL = 'https://typing-race-2026-chi.vercel.app/';
+
+    const fromUrl = () => {
+      const value = new URLSearchParams(location.search).get('lang');
+      return LANGS.includes(value) ? value : null;
+    };
+    const fromStorage = () => {
+      try {
+        const value = localStorage.getItem(STORAGE_KEY);
+        return LANGS.includes(value) ? value : null;
+      } catch {
+        return null;
+      }
+    };
+    const fromNavigator = () => {
+      const preferences = navigator.languages?.length ? navigator.languages : [navigator.language];
+      for (const preference of preferences) {
+        const base = (preference || '').split('-')[0].toLowerCase();
+        if (LANGS.includes(base)) return base;
+      }
+      return null;
+    };
+
+    function apply(lang) {
+      const dict = DICT[lang];
+      document.documentElement.lang = lang;
+      document.title = dict['doc.title'];
+      document.querySelector('meta[name="description"]')?.setAttribute('content', dict['doc.description']);
+
+      // getAttribute, not dataset: the key is read verbatim, with no camel-case
+      // round trip to get wrong (`data-i18n` carries a digit, which is exactly
+      // where dataset implementations differ).
+      for (const el of document.querySelectorAll('[data-i18n]')) {
+        const value = dict[el.getAttribute('data-i18n')];
+        if (value !== undefined) el.innerHTML = value;
+      }
+      for (const el of document.querySelectorAll('[data-i18n-label]')) {
+        const value = dict[el.getAttribute('data-i18n-label')];
+        if (value !== undefined) el.setAttribute('aria-label', value);
+      }
+      // The app reads ?lang= too, so following a link keeps the language.
+      for (const el of document.querySelectorAll('[data-app-link]')) {
+        el.setAttribute('href', APP_URL + '?lang=' + lang);
+      }
+      for (const chip of document.querySelectorAll('.lang-chip')) {
+        chip.setAttribute('aria-pressed', String(chip.getAttribute('data-lang') === lang));
+      }
     }
-    // no-op reserved for future interactions
+
+    function setLang(lang, { pushUrl = true } = {}) {
+      try {
+        localStorage.setItem(STORAGE_KEY, lang);
+      } catch {
+        /* private mode — the choice still holds for this session */
+      }
+      apply(lang);
+      if (pushUrl) {
+        // Keeps the hash: a link to ?lang=pl#program has to survive a switch.
+        const url = new URL(location.href);
+        url.searchParams.set('lang', lang);
+        history.replaceState(null, '', url);
+      }
+    }
+
+    for (const chip of document.querySelectorAll('.lang-chip')) {
+      chip.addEventListener('click', () => setLang(chip.getAttribute('data-lang')));
+    }
+
+    setLang(fromUrl() ?? fromStorage() ?? fromNavigator() ?? 'uk', { pushUrl: false });
   </script>
 </body>
 </html>
