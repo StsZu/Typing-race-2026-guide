@@ -192,6 +192,13 @@
 
     .disclaimer { padding: 14px 16px; border-radius: var(--radius-md); background: var(--md-sys-color-surface-container); color: var(--md-sys-color-on-surface-variant); font-size: 0.875rem; margin-top: 12px; }
 
+    .map-table-wrap { overflow-x: auto; margin-top: 12px; padding: 4px 10px; border-radius: var(--radius-md); background: var(--md-sys-color-surface-container-lowest); border: 1px solid var(--md-sys-color-outline-variant); }
+    .map-table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+    .map-table th, .map-table td { text-align: left; padding: 10px 12px; vertical-align: top; border-bottom: 1px solid var(--md-sys-color-outline-variant); }
+    .map-table th { font-size: 0.75rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.04em; color: var(--md-sys-color-on-surface-variant); }
+    .map-table tr:last-child td { border-bottom: none; }
+    .map-table td:first-child { font-weight: 500; }
+
     .links-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 10px; }
     .link-card { display: flex; align-items: center; gap: 12px; padding: 14px 16px; border-radius: var(--radius-md); background: var(--md-sys-color-surface-container-lowest); border: 1px solid var(--md-sys-color-outline-variant); color: inherit; text-decoration: none; }
     .link-card:hover { text-decoration: none; box-shadow: var(--shadow-1); border-color: var(--md-sys-color-primary); }
@@ -224,6 +231,7 @@
     <div class="top-actions">
       <md-text-button href="#modes">Режими</md-text-button>
       <md-text-button href="#sources">Тексти</md-text-button>
+      <md-text-button href="#program">Програма</md-text-button>
       <md-text-button href="#online">Онлайн</md-text-button>
       <md-text-button href="#results">Аналіз</md-text-button>
       <md-filled-button href="#start">Почати</md-filled-button>
@@ -295,9 +303,98 @@
       </div>
     </section>
 
+    <!-- PROGRAM -->
+    <section id="program" aria-labelledby="program-title">
+      <div class="section-header"><span class="material-symbols-outlined">route</span><h2 id="program-title" class="md-typescale-title-large">4. Програма тренування</h2></div>
+
+      <p class="muted" style="margin:0 0 14px">
+        Академія — не список, який треба «пройти», а послідовність із чотирьох кроків. Порядок і вимірюваний
+        критерій переходу дають більше, ніж кількість зроблених вправ. Швидкість нижче вказана в
+        <strong>SPM</strong> — символів за хвилину, тій самій величині, яку застосунок показує після кожного заїзду.
+      </p>
+
+      <div class="item">
+        <div class="item-top"><h3 class="md-typescale-title-medium">Крок 1. Механіка без слів</h3><span class="badge now">Основа</span></div>
+        <p class="muted" style="margin:0 0 12px">Патерни базового ряду й окремих пальців. Саме ці рухи потім несуть будь-який текст.</p>
+        <ul class="checklist">
+          <li><span class="check-icon material-symbols-outlined">keyboard</span><span><strong>ЙЦУКЕН — «Початкова школа»</strong>, 6 вправ: Базовий ряд → Ритм ряду → Дзеркальні пари → Відкриті склади → Слова 3 літери → Нижній ряд: м с т.</span></li>
+          <li><span class="check-icon material-symbols-outlined">keyboard_alt</span><span><strong>Латиниця — Elementary</strong>, далі п’ять модулів чистої механіки: Straight Lines, Mirror Patterns, Alternating Hands, Finger Isolation, Rhythm &amp; Disruption. Це 20 вправ на <code>asdf jkl;</code> — механіка розкладки, а не англійська мова, тож вони працюють для всіх, хто друкує латиницею.</span></li>
+          <li><span class="check-icon material-symbols-outlined">translate</span><span><strong>Polski — Szkoła podstawowa</strong>, ті самі шість кроків польською; після них окремий модуль <em>Diakrytyki: mechanika Option/AltGr</em> (12 вправ).</span></li>
+        </ul>
+        <div class="why-box"><strong>Навіщо</strong><p>Пальці вчаться повертатися у вихідну позицію самі. Поки цього немає, кожне слово доводиться складати очима.</p></div>
+      </div>
+
+      <div class="item">
+        <div class="item-top"><h3 class="md-typescale-title-medium">Крок 2. Слова і речення</h3><span class="badge now">Зв’язування</span></div>
+        <p class="muted" style="margin:0">Рухи зв’язуються в безперервний набір: «Перші слова» → «Голосні та закінчення» → «Унікальні літери» (українська),
+          Full Keyboard → Words &amp; Sentences (English), Podstawy i podwójne → Znaki specjalne → Pełne zdania (polski).</p>
+      </div>
+
+      <div class="item">
+        <div class="item-top"><h3 class="md-typescale-title-medium">Крок 3. Слабкі місця</h3><span class="badge now">Прицільно</span></div>
+        <p class="muted" style="margin:0">Модулі під конкретну складність, а не «ще трохи тексту»: скупчення приголосних і кластери, рідкісні літери,
+          подвоєння та регістр, пунктуація й цифри, ритм. В англійському курсі до них додаються Home-row Rolls, Alternation Rhythm,
+          Vertical Jumps, Same-finger Friction і Production Patterns — по чотири вправи в кожному.</p>
+      </div>
+
+      <div class="item">
+        <div class="item-top"><h3 class="md-typescale-title-medium">Крок 4. Перенесення у справжній текст</h3><span class="badge todo">Перевірка</span></div>
+        <p class="muted" style="margin:0">Навичка чогось варта лише тоді, коли працює поза знайомою вправою: радіодиктанти, Гімн, Civic Classics,
+          польські диктанди, Бібліотека знань — і заїзд у режимі «Соло», «Проти AI» чи «Онлайн» як контроль.</p>
+      </div>
+
+      <div class="section-header" style="margin-top:24px"><span class="material-symbols-outlined">speed</span><h3 class="md-typescale-title-medium" style="margin:0">Які результати вважати достатніми</h3></div>
+      <div class="card-grid">
+        <div class="md-card"><div class="card-icon"><span class="material-symbols-outlined">looks_one</span></div><h3 class="md-typescale-title-medium">Освоєння руху</h3><p class="muted"><strong>80–150 SPM</strong> · точність <strong>≥ 96%</strong>. Темп «Мудрого Слона». Швидкість тут не мета — мета в тому, щоб не підглядати на клавіатуру.</p></div>
+        <div class="md-card"><div class="card-icon"><span class="material-symbols-outlined">looks_two</span></div><h3 class="md-typescale-title-medium">Впевнена механіка</h3><p class="muted"><strong>150–250 SPM</strong> · точність <strong>≥ 97%</strong>. Рухи вже не потребують окремої уваги.</p></div>
+        <div class="md-card"><div class="card-icon"><span class="material-symbols-outlined">looks_3</span></div><h3 class="md-typescale-title-medium">Робочий рівень</h3><p class="muted"><strong>225–300 SPM</strong> · точність <strong>≥ 97%</strong>, не більше однієї помилки на коротку вправу. Темп «Швидкої Зебри».</p></div>
+        <div class="md-card"><div class="card-icon"><span class="material-symbols-outlined">looks_4</span></div><h3 class="md-typescale-title-medium">Високий рівень</h3><p class="muted"><strong>375–475 SPM</strong> · точність <strong>≥ 98%</strong>, на механіці — <strong>нуль помилок</strong>. Темп «Чорної Пантери».</p></div>
+      </div>
+      <div class="why-box" style="margin-top:14px"><strong>Вправа пройдена, коли</strong><p>ви <strong>двічі-тричі підряд</strong> дотягнули цільову швидкість свого етапу з не більш ніж однією помилкою — і не дивлячись на клавіатуру. Один вдалий прохід — випадковість, три — навичка.</p></div>
+      <p class="disclaimer">Далі за цією шкалою існує рівень <strong>550 SPM і вище</strong>. Він досяжний, але не є метою перших місяців: там механіка вже не тримається на увазі, а працює сама.</p>
+
+      <div class="section-header" style="margin-top:24px"><span class="material-symbols-outlined">timer</span><h3 class="md-typescale-title-medium" style="margin:0">Одне заняття</h3></div>
+      <div class="next-panel">
+        <ol class="priority-list">
+          <li><span class="step-num">1</span><span><strong>Розігрів — 3 хв.</strong> Одна вже знайома вправа механіки.</span></li>
+          <li><span class="step-num">2</span><span><strong>Цільова вправа — 7 хв.</strong> Одна нова вправа або ваше слабке поєднання.</span></li>
+          <li><span class="step-num">3</span><span><strong>Закріплення — 5 хв.</strong> Та сама вправа до двох-трьох чистих проходів.</span></li>
+          <li><span class="step-num">4</span><span><strong>Перенесення — 3–5 хв.</strong> Короткий текст із Бібліотеки знань або заїзд «Соло».</span></li>
+        </ol>
+        <p class="panel-note"><span class="material-symbols-outlined" style="font-size:18px;color:var(--md-sys-color-primary)">pause_circle</span>
+          Підхід — 15–25 хвилин, після нього <strong>перерва обов’язкова</strong>: від десяти хвилин до кількох годин. Два підходи з перервою дають більше, ніж година без неї.
+          Якщо вправа не йде після кількох спокійних спроб у двох заняттях — перейдіть до сусідньої, а до складної повернітеся наступного дня. Рух часто дозріває саме за час паузи.</p>
+        <p class="panel-note"><span class="material-symbols-outlined" style="font-size:18px;color:var(--md-sys-color-primary)">block</span>
+          Тримайте перемикач у стані <strong>«Помилки: блок»</strong> (він такий за замовчуванням) — він не дає проскочити помилку далі й одразу показує символ, який треба виправити.</p>
+        <p class="panel-note"><span class="material-symbols-outlined" style="font-size:18px;color:var(--md-sys-color-primary)">battery_charging_full</span>
+          Денну ціль «Заряду тренування» закриває приблизно 500 символів вправ Академії — це 7–8 коротких вправ механіки. Тобто індикатор міряє <strong>регулярність</strong>, а не обсяг: закритий день не означає, що на сьогодні досить.</p>
+      </div>
+
+      <div class="section-header" style="margin-top:24px"><span class="material-symbols-outlined">troubleshoot</span><h3 class="md-typescale-title-medium" style="margin:0">Що видно в «Аналізі» → яку вправу брати</h3></div>
+      <div class="map-table-wrap">
+        <table class="map-table">
+          <thead><tr><th>Симптом</th><th>Модуль Академії</th></tr></thead>
+          <tbody>
+            <tr><td>Помилки в <code>нн</code>, <code>тт</code>, <code>-ття</code>, <code>-ться</code></td><td>Складні патерни · Подвоєння та регістр</td></tr>
+            <tr><td>Затинання на <code>стр</code>, <code>здр</code>, <code>ств</code>, <code>дств</code></td><td>Скупчення приголосних · Кластери приголосних (розширені)</td></tr>
+            <tr><td>Рідкісні <code>ґ</code>, <code>є</code>, <code>ї</code>, апостроф</td><td>Унікальні літери</td></tr>
+            <tr><td><code>th</code>, <code>ing</code>, <code>tion</code>, <code>re/er</code></td><td>Alternation Rhythm · Clusters</td></tr>
+            <tr><td><code>q</code>, <code>x</code>, <code>z</code>, <code>j</code>, <code>k</code></td><td>Weak Letters</td></tr>
+            <tr><td>Мікропаузи на одному пальці: <code>un/nu</code>, <code>ol/lo</code>, <code>my/ym</code></td><td>Same-finger Friction · Vertical Jumps</td></tr>
+            <tr><td><code>ą</code>, <code>ę</code>, <code>ł</code>, <code>ó</code>, <code>ś</code>, <code>ż</code>, <code>ź</code>, <code>ć</code>, <code>ń</code></td><td>Diakrytyki: mechanika Option/AltGr</td></tr>
+            <tr><td><code>prz</code>, <code>szcz</code>, <code>rz</code>, <code>cz</code></td><td>Klastry · Dźwięczne i digrafy</td></tr>
+            <tr><td>Цифри, дужки, лапки, дефіси</td><td>Пунктуація та цифри · Punctuation &amp; Numbers</td></tr>
+            <tr><td>Нерівний ритм, різкі провали швидкості</td><td>Ритм · Rhythm &amp; Disruption</td></tr>
+            <tr><td>Великі літери, абревіатури, Shift</td><td>Подвоєння та регістр · Doubles &amp; Caps</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="disclaimer">Наступне заняття починайте з 3–5 хвилин саме на слабке поєднання. Проходити весь курс заново через одну проблемну пару символів не потрібно.</p>
+    </section>
+
     <!-- RACE FLOW -->
     <section id="race" aria-labelledby="race-title">
-      <div class="section-header"><span class="material-symbols-outlined">flag</span><h2 id="race-title" class="md-typescale-title-large">4. Як проходить заїзд</h2></div>
+      <div class="section-header"><span class="material-symbols-outlined">flag</span><h2 id="race-title" class="md-typescale-title-large">5. Як проходить заїзд</h2></div>
       <div class="next-panel">
         <ol class="priority-list">
           <li><span class="step-num">1</span><span><strong>Дочекайтеся завершення відліку</strong> після старту.</span></li>
@@ -313,7 +410,7 @@
 
     <!-- ONLINE -->
     <section id="online" aria-labelledby="online-title">
-      <div class="section-header"><span class="material-symbols-outlined">lan</span><h2 id="online-title" class="md-typescale-title-large">5. Онлайн-гонка</h2></div>
+      <div class="section-header"><span class="material-symbols-outlined">lan</span><h2 id="online-title" class="md-typescale-title-large">6. Онлайн-гонка</h2></div>
 
       <div class="item">
         <div class="item-top"><h3 class="md-typescale-title-medium">Створення кімнати</h3><span class="badge now">Хост</span></div>
@@ -343,7 +440,7 @@
 
     <!-- RESULTS -->
     <section id="results" aria-labelledby="results-title">
-      <div class="section-header"><span class="material-symbols-outlined">query_stats</span><h2 id="results-title" class="md-typescale-title-large">6. Результати й аналіз</h2></div>
+      <div class="section-header"><span class="material-symbols-outlined">query_stats</span><h2 id="results-title" class="md-typescale-title-large">7. Результати й аналіз</h2></div>
       <p class="muted" style="margin:0 0 14px">Після фінішу доступні дві вкладки:</p>
       <div class="card-grid">
         <div class="md-card"><div class="card-icon"><span class="material-symbols-outlined">emoji_events</span></div><h3 class="md-typescale-title-medium">Результати</h3><p class="muted">Місце кожного гравця, швидкість у SPM та точність.</p></div>
@@ -362,7 +459,7 @@
 
     <!-- TRAINING METER -->
     <section id="meter" aria-labelledby="meter-title">
-      <div class="section-header"><span class="material-symbols-outlined">battery_charging_full</span><h2 id="meter-title" class="md-typescale-title-large">7. Заряд тренування</h2></div>
+      <div class="section-header"><span class="material-symbols-outlined">battery_charging_full</span><h2 id="meter-title" class="md-typescale-title-large">8. Заряд тренування</h2></div>
       <div class="item">
         <p class="muted" style="margin:0 0 12px">
           Індикатор <strong>«Заряд тренування»</strong> показує денну активність від 0 до 100%. Він зростає після завершених
@@ -380,7 +477,7 @@
 
     <!-- RECOMMENDATIONS -->
     <section id="tips" aria-labelledby="tips-title">
-      <div class="section-header"><span class="material-symbols-outlined">tips_and_updates</span><h2 id="tips-title" class="md-typescale-title-large">8. Рекомендації</h2></div>
+      <div class="section-header"><span class="material-symbols-outlined">tips_and_updates</span><h2 id="tips-title" class="md-typescale-title-large">9. Рекомендації</h2></div>
       <ul class="checklist">
         <li><span class="check-icon material-symbols-outlined">verified</span><span><strong>Спочатку точність</strong> — працюйте над точністю, а потім збільшуйте швидкість.</span></li>
         <li><span class="check-icon material-symbols-outlined">visibility_off</span><span><strong>Без погляду на клавіатуру</strong> — тримайте очі на екрані та використовуйте всі пальці.</span></li>
