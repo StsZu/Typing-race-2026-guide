@@ -263,6 +263,7 @@
         <span class="chip-static"><span class="material-symbols-outlined" style="font-size:16px">translate</span> <span data-i18n="hero.chip.langs">UA · EN · PL</span></span>
         <span class="chip-static"><span class="material-symbols-outlined" style="font-size:16px">groups</span> <span data-i18n="hero.chip.modes">Соло · Бот · Онлайн</span></span>
         <span class="chip-static"><span class="material-symbols-outlined" style="font-size:16px">insights</span> <span data-i18n="hero.chip.analysis">Аналіз швидкості та точності</span></span>
+        <span class="chip-static"><span class="material-symbols-outlined" style="font-size:16px">military_tech</span> <span data-i18n="hero.chip.profiles">Профілі й досягнення</span></span>
       </div>
       <div class="hero-actions">
         <md-filled-button href="#start"><span class="material-symbols-outlined" slot="icon">play_arrow</span> <span data-i18n="hero.cta.start">Почати роботу</span></md-filled-button>
@@ -277,7 +278,7 @@
         <ol class="priority-list">
           <li><span class="step-num">1</span><span data-i18n="s1.step1"><strong>Відкрийте застосунок у браузері</strong> <a data-app-link href="https://typing-race-2026-chi.vercel.app/" target="_blank" rel="noopener">typing-race-2026-chi.vercel.app</a></span></li>
           <li><span class="step-num">2</span><span data-i18n="s1.step2"><strong>За потреби перемкніть тему</strong> — світлу або темну у верхній частині сторінки.</span></li>
-          <li><span class="step-num">3</span><span data-i18n="s1.step3"><strong>Введіть ім’я</strong> у полі «Ваш нікнейм».</span></li>
+          <li><span class="step-num">3</span><span data-i18n="s1.step3"><strong>Введіть ім’я</strong> у полі «Ваш нікнейм» — застосунок його запам’ятає. Якщо за комп’ютером тренується кілька людей, заведіть кожному свій профіль (розділ нижче).</span></li>
           <li><span class="step-num">4</span><span data-i18n="s1.step4"><strong>Оберіть режим змагання</strong> та джерело тексту.</span></li>
           <li><span class="step-num">5</span><span data-i18n="s1.step5"><strong>Налаштуйте звук</strong> і натисніть кнопку початку заїзду.</span></li>
         </ol>
@@ -286,9 +287,22 @@
       </div>
     </section>
 
+    <!-- PROFILES -->
+    <section id="profiles" aria-labelledby="profiles-title">
+      <div class="section-header"><span class="material-symbols-outlined">group</span><h2 id="profiles-title" class="md-typescale-title-large" data-i18n="prof.title">2. Профілі</h2></div>
+      <p class="muted" style="margin:0 0 14px" data-i18n="prof.intro">За одним комп’ютером може тренуватися кілька людей. У кожного профілю <strong>свої</strong> заряд тренування, серія днів, історія заїздів, прогрес курсів і досягнення.</p>
+      <div class="card-grid">
+        <div class="md-card"><div class="card-icon"><span class="material-symbols-outlined">switch_account</span></div><h3 class="md-typescale-title-medium" data-i18n="prof.switch.title">Перемикання</h3><p class="muted" data-i18n="prof.switch.desc">Рядок аватарів над полем нікнейму в лобі. Активний підсвічений, клік перемикає. Під час гонки перемикач вимкнений.</p></div>
+        <div class="md-card"><div class="card-icon"><span class="material-symbols-outlined">person_add</span></div><h3 class="md-typescale-title-medium" data-i18n="prof.new.title">Новий профіль</h3><p class="muted" data-i18n="prof.new.desc">Кнопка <strong>+</strong> у тому ж рядку. Профіль створюється порожнім — ім’я йому дає звичайний набір у полі нікнейму нижче. Максимум шість.</p></div>
+        <div class="md-card"><div class="card-icon"><span class="material-symbols-outlined">badge</span></div><h3 class="md-typescale-title-medium" data-i18n="prof.who.title">Хто зараз грає</h3><p class="muted" data-i18n="prof.who.desc">Чіп з аватаром та ім’ям — у тулбарі лобі й у хедері гонки. Клік по ньому відкриває панель профілю.</p></div>
+        <div class="md-card"><div class="card-icon"><span class="material-symbols-outlined">delete</span></div><h3 class="md-typescale-title-medium" data-i18n="prof.delete.title">Видалення</h3><p class="muted" data-i18n="prof.delete.desc">Кошик поруч із плюсом, підтвердження у два кліки. Забирає весь прогрес цієї людини <strong>назавжди</strong>. Останній профіль видалити не можна.</p></div>
+      </div>
+      <div class="why-box" style="margin-top:14px"><strong data-i18n="prof.limits.label">Про що варто знати одразу</strong><p data-i18n="prof.limits.text">Профілі <strong>розділяють</strong> прогрес, а не приховують його: пароля немає, і будь-хто за цим комп’ютером може обрати будь-який профіль. Дані живуть у цьому браузері — на іншому пристрої буде інший профіль. Прогрес, накопичений до появи профілів, перейшов у перший профіль сам.</p></div>
+    </section>
+
     <!-- MODES -->
     <section id="modes" aria-labelledby="modes-title">
-      <div class="section-header"><span class="material-symbols-outlined">sports_esports</span><h2 id="modes-title" class="md-typescale-title-large" data-i18n="s2.title">2. Режими змагання</h2></div>
+      <div class="section-header"><span class="material-symbols-outlined">sports_esports</span><h2 id="modes-title" class="md-typescale-title-large" data-i18n="s2.title">3. Режими змагання</h2></div>
       <div class="card-grid">
         <div class="md-card"><div class="card-icon"><span class="material-symbols-outlined">person</span></div><h3 class="md-typescale-title-medium" data-i18n="s2.solo.title">Соло</h3><p class="muted" data-i18n="s2.solo.desc">Самостійне тренування без суперника.</p></div>
         <div class="md-card"><div class="card-icon"><span class="material-symbols-outlined">smart_toy</span></div><h3 class="md-typescale-title-medium" data-i18n="s2.bot.title">Проти AI</h3><p class="muted" data-i18n="s2.bot.desc">Гонка з ботом. Перед стартом оберіть його швидкість.</p></div>
@@ -302,7 +316,7 @@
 
     <!-- SOURCES -->
     <section id="sources" aria-labelledby="sources-title">
-      <div class="section-header"><span class="material-symbols-outlined">library_books</span><h2 id="sources-title" class="md-typescale-title-large" data-i18n="s3.title">3. Джерела тексту</h2></div>
+      <div class="section-header"><span class="material-symbols-outlined">library_books</span><h2 id="sources-title" class="md-typescale-title-large" data-i18n="s3.title">4. Джерела тексту</h2></div>
       <div class="card-grid">
         <div class="md-card"><div class="card-icon"><span class="material-symbols-outlined">school</span></div><h3 class="md-typescale-title-medium" data-i18n="s3.academy.title">Академія</h3><p class="muted" data-i18n="s3.academy.desc">Структуровані вправи українською, англійською або польською. Оберіть мову, модуль і вправу.</p></div>
         <div class="md-card"><div class="card-icon"><span class="material-symbols-outlined">fitness_center</span></div><h3 class="md-typescale-title-medium" data-i18n="s3.tutor.title">Тренажер</h3><p class="muted" data-i18n="s3.tutor.desc">Послідовний курс сенсорного набору. Прогрес можна експортувати у файл і згодом відновити або об’єднати через імпорт.</p></div>
@@ -313,7 +327,7 @@
 
     <!-- PROGRAM -->
     <section id="program" aria-labelledby="program-title">
-      <div class="section-header"><span class="material-symbols-outlined">route</span><h2 id="program-title" class="md-typescale-title-large" data-i18n="s4.title">4. Програма тренування</h2></div>
+      <div class="section-header"><span class="material-symbols-outlined">route</span><h2 id="program-title" class="md-typescale-title-large" data-i18n="s4.title">5. Програма тренування</h2></div>
 
       <p class="muted" style="margin:0 0 14px" data-i18n="s4.intro">
         Академія — не список, який треба «пройти», а послідовність із чотирьох кроків. Порядок і вимірюваний
@@ -378,6 +392,21 @@
           <span data-i18n="s4.note.meter">Денну ціль «Заряду тренування» закриває приблизно 500 символів вправ Академії — це 7–8 коротких вправ механіки. Тобто індикатор міряє <strong>регулярність</strong>, а не обсяг: закритий день не означає, що на сьогодні досить.</span></p>
       </div>
 
+      <div class="section-header" style="margin-top:24px"><span class="material-symbols-outlined">checklist</span><h3 class="md-typescale-title-medium" style="margin:0" data-i18n="s4.auto.heading">Застосунок відмічає це сам</h3></div>
+      <p class="muted" style="margin:0 0 12px" data-i18n="s4.auto.intro">У лобі є картка <strong>«Заняття сьогодні»</strong> з тими самими чотирма кроками. Галочки ставляться за фактом заїздів — ось що зараховується.</p>
+      <div class="map-table-wrap">
+        <table class="map-table">
+          <thead><tr><th data-i18n="s4.auto.th1">Крок</th><th data-i18n="s4.auto.th2">Що зараховується</th></tr></thead>
+          <tbody>
+            <tr><td data-i18n="s4.auto.r1a">Розігрів</td><td data-i18n="s4.auto.r1b">Заїзд по вправі, яку ви вже робили <strong>раніше</strong>, не сьогодні.</td></tr>
+            <tr><td data-i18n="s4.auto.r2a">Цільова вправа</td><td data-i18n="s4.auto.r2b">Заїзд по вправі, ще не пройденій за критерієм вище.</td></tr>
+            <tr><td data-i18n="s4.auto.r3a">Закріплення</td><td data-i18n="s4.auto.r3b">Одна й та сама вправа <strong>двічі</strong> за сьогодні, обидва рази в межах дозволених помилок вашого рівня.</td></tr>
+            <tr><td data-i18n="s4.auto.r4a">Перенесення</td><td data-i18n="s4.auto.r4b">Заїзд по тексту з Бібліотеки знань або по завантаженому файлу.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="disclaimer" data-i18n="s4.auto.honest">Галочки — орієнтир, а не атестація: застосунок не міряє хвилини й не бачить, чи ви дивилися на клавіатуру. Їхня справа — показати форму заняття й дати йому кінець.</p>
+
       <div class="section-header" style="margin-top:24px"><span class="material-symbols-outlined">troubleshoot</span><h3 class="md-typescale-title-medium" style="margin:0" data-i18n="s4.map.heading">Що видно в «Аналізі» → яку вправу брати</h3></div>
       <div class="map-table-wrap">
         <table class="map-table">
@@ -403,7 +432,7 @@
 
     <!-- RACE FLOW -->
     <section id="race" aria-labelledby="race-title">
-      <div class="section-header"><span class="material-symbols-outlined">flag</span><h2 id="race-title" class="md-typescale-title-large" data-i18n="s5.title">5. Як проходить заїзд</h2></div>
+      <div class="section-header"><span class="material-symbols-outlined">flag</span><h2 id="race-title" class="md-typescale-title-large" data-i18n="s5.title">6. Як проходить заїзд</h2></div>
       <div class="next-panel">
         <ol class="priority-list">
           <li><span class="step-num">1</span><span data-i18n="s5.step1"><strong>Дочекайтеся завершення відліку</strong> після старту.</span></li>
@@ -419,7 +448,7 @@
 
     <!-- ONLINE -->
     <section id="online" aria-labelledby="online-title">
-      <div class="section-header"><span class="material-symbols-outlined">lan</span><h2 id="online-title" class="md-typescale-title-large" data-i18n="s6.title">6. Онлайн-гонка</h2></div>
+      <div class="section-header"><span class="material-symbols-outlined">lan</span><h2 id="online-title" class="md-typescale-title-large" data-i18n="s6.title">7. Онлайн-гонка</h2></div>
 
       <div class="item">
         <div class="item-top"><h3 class="md-typescale-title-medium" data-i18n="s6.create.title">Створення кімнати</h3><span class="badge now" data-i18n="s6.create.badge">Хост</span></div>
@@ -449,7 +478,7 @@
 
     <!-- RESULTS -->
     <section id="results" aria-labelledby="results-title">
-      <div class="section-header"><span class="material-symbols-outlined">query_stats</span><h2 id="results-title" class="md-typescale-title-large" data-i18n="s7.title">7. Результати й аналіз</h2></div>
+      <div class="section-header"><span class="material-symbols-outlined">query_stats</span><h2 id="results-title" class="md-typescale-title-large" data-i18n="s7.title">8. Результати й аналіз</h2></div>
       <p class="muted" style="margin:0 0 14px" data-i18n="s7.lead">Після фінішу доступні дві вкладки:</p>
       <div class="card-grid">
         <div class="md-card"><div class="card-icon"><span class="material-symbols-outlined">emoji_events</span></div><h3 class="md-typescale-title-medium" data-i18n="s7.protocol.title">Результати</h3><p class="muted" data-i18n="s7.protocol.desc">Місце кожного гравця, швидкість у SPM та точність.</p></div>
@@ -468,7 +497,7 @@
 
     <!-- TRAINING METER -->
     <section id="meter" aria-labelledby="meter-title">
-      <div class="section-header"><span class="material-symbols-outlined">battery_charging_full</span><h2 id="meter-title" class="md-typescale-title-large" data-i18n="s8.title">8. Заряд тренування</h2></div>
+      <div class="section-header"><span class="material-symbols-outlined">battery_charging_full</span><h2 id="meter-title" class="md-typescale-title-large" data-i18n="s8.title">9. Заряд, рівень і досягнення</h2></div>
       <div class="item">
         <p class="muted" style="margin:0 0 12px" data-i18n="s8.p1">
           Індикатор <strong>«Заряд тренування»</strong> показує денну активність від 0 до 100%. Він зростає після завершених
@@ -476,23 +505,42 @@
         </p>
         <p class="muted" style="margin:0 0 10px" data-i18n="s8.p2">Крім відсотка, індикатор показує:</p>
         <ul class="checklist">
-          <li><span class="check-icon material-symbols-outlined">local_fire_department</span><span data-i18n="s8.li1"><strong>🔥 Серію днів</strong> — скільки днів поспіль ви тренувалися.</span></li>
+          <li><span class="check-icon material-symbols-outlined">local_fire_department</span><span data-i18n="s8.li1"><strong>🔥 Серію днів</strong> — скільки днів підряд ви тренувалися. Один пропущений день на тиждень серія прощає.</span></li>
           <li><span class="check-icon material-symbols-outlined">bar_chart</span><span data-i18n="s8.li2"><strong>Деталі дня</strong> — кількість заїздів, набраних символів, найкращу швидкість (SPM) і чисті заїзди.</span></li>
           <li><span class="check-icon material-symbols-outlined">restart_alt</span><span data-i18n="s8.li3"><strong>Кнопку «Скинути»</strong> — обнуляє прогрес поточного дня (серія днів при цьому зберігається).</span></li>
         </ul>
         <div class="why-box"><strong data-i18n="s8.bonus.label">Бонус</strong><p data-i18n="s8.bonus.text">Коли денну ціль (100%) виконано, кожен наступний заїзд додає <strong>бонусні</strong> заїзди понад норму.</p></div>
+        <div class="why-box" style="margin-top:12px"><strong data-i18n="s8.streak.label">Пропущений день</strong><p data-i18n="s8.streak.text">Серія рахує дні тренувань підряд і <strong>прощає один пропуск на тиждень</strong>. Два пропуски поспіль або два в один тиждень починають її спочатку. Так задумано: перерва входить у програму, і день відпочинку не має коштувати місяця.</p></div>
       </div>
+
+      <div class="section-header" style="margin-top:24px"><span class="material-symbols-outlined">trending_up</span><h3 class="md-typescale-title-medium" style="margin:0" data-i18n="s8.level.heading">Рівень</h3></div>
+      <p class="muted" style="margin:0 0 14px" data-i18n="s8.level.text">Денні результати не зникають опівночі, а складаються в <strong>рівень</strong>: 300 очок на рівень, тобто приблизно три повні дні. Оскільки денна ціль обмежена сотнею, рівень міряє <strong>регулярність</strong>, а не обсяг — його не можна взяти одним довгим вечором.</p>
+
+      <div class="section-header" style="margin-top:24px"><span class="material-symbols-outlined">military_tech</span><h3 class="md-typescale-title-medium" style="margin:0" data-i18n="s8.badges.heading">Досягнення</h3></div>
+      <p class="muted" style="margin:0 0 12px" data-i18n="s8.badges.text">Двадцять чотири бейджі в девʼяти групах: техніка, точність, слабкі літери, ритм, рівні швидкості, регулярність, заняття, курси й обсяг. Бейдж прилітає тостом одразу після заїзду.</p>
+      <ul class="checklist">
+        <li><span class="check-icon material-symbols-outlined">verified</span><span data-i18n="s8.badges.li1"><strong>Швидкість — тільки разом із точністю.</strong> Бейджі рівнів вимагають і SPM, і точність зі своєї сходинки. 300 SPM при 90% не рахуються.</span></li>
+        <li><span class="check-icon material-symbols-outlined">emoji_emotions</span><span data-i18n="s8.badges.li2"><strong>Шість бейджів відкривають аватари.</strong> Замкнений аватар у панелі підказує, який саме бейдж його відкриє.</span></li>
+        <li><span class="check-icon material-symbols-outlined">flag</span><span data-i18n="s8.badges.li3"><strong>«Наступна ціль»</strong> — картка в лобі показує <strong>одну</strong> найближчу. Далекі цілі існують, але ніколи не пропонуються як наступні.</span></li>
+      </ul>
+
+      <div class="section-header" style="margin-top:24px"><span class="material-symbols-outlined">build</span><h3 class="md-typescale-title-medium" style="margin:0" data-i18n="s8.weak.heading">Слабкі літери</h3></div>
+      <p class="muted" style="margin:0 0 14px" data-i18n="s8.weak.text">Помилки по літерах рахуються <strong>між заїздами</strong>, а не в межах одного — тому порада «спробуйте цю вправу» стабільна й не стрибає від однієї випадкової помилки. Літера вважається виправленою після трьох чистих заїздів поспіль, і за це теж є бейдж.</p>
+
+      <p class="disclaimer" data-i18n="s8.where">Усе це видно в панелі профілю: клік по чіпу з імʼям угорі сторінки. Спершу ціль і заняття, далі бейджі, а графік за 30 днів і рекорди — під згортанням «Статистика».</p>
     </section>
 
     <!-- RECOMMENDATIONS -->
     <section id="tips" aria-labelledby="tips-title">
-      <div class="section-header"><span class="material-symbols-outlined">tips_and_updates</span><h2 id="tips-title" class="md-typescale-title-large" data-i18n="s9.title">9. Рекомендації</h2></div>
+      <div class="section-header"><span class="material-symbols-outlined">tips_and_updates</span><h2 id="tips-title" class="md-typescale-title-large" data-i18n="s9.title">10. Рекомендації</h2></div>
       <ul class="checklist">
         <li><span class="check-icon material-symbols-outlined">verified</span><span data-i18n="s9.1"><strong>Спочатку точність</strong> — працюйте над точністю, а потім збільшуйте швидкість.</span></li>
         <li><span class="check-icon material-symbols-outlined">visibility_off</span><span data-i18n="s9.2"><strong>Без погляду на клавіатуру</strong> — тримайте очі на екрані та використовуйте всі пальці.</span></li>
         <li><span class="check-icon material-symbols-outlined">timer</span><span data-i18n="s9.3"><strong>Регулярність</strong> — тренуйтеся короткими регулярними сесіями.</span></li>
         <li><span class="check-icon material-symbols-outlined">insights</span><span data-i18n="s9.4"><strong>Аналізуйте</strong> — після кожного заїзду переглядайте вкладку «Аналіз» і повторюйте рекомендовані вправи.</span></li>
         <li><span class="check-icon material-symbols-outlined">wifi</span><span data-i18n="s9.5"><strong>Для онлайн-гри</strong> — використовуйте стабільне з’єднання та не закривайте вкладку до завершення гонки.</span></li>
+        <li><span class="check-icon material-symbols-outlined">flag</span><span data-i18n="s9.6"><strong>Одна ціль за раз</strong> — тримайтеся картки «Наступна ціль». Решта бейджів — це запис зробленого, а не список завдань.</span></li>
+        <li><span class="check-icon material-symbols-outlined">self_improvement</span><span data-i18n="s9.7"><strong>Пропущений день — не катастрофа</strong> — тиждень має один дозволений пропуск, і перерва входить у програму.</span></li>
       </ul>
     </section>
 
@@ -535,16 +583,29 @@
         'hero.chip.langs': 'UA · EN · PL',
         'hero.chip.modes': 'Соло · Бот · Онлайн',
         'hero.chip.analysis': 'Аналіз швидкості та точності',
+        'hero.chip.profiles': 'Профілі й досягнення',
         'hero.cta.start': 'Почати роботу',
         'hero.cta.app': 'Відкрити застосунок',
         's1.title': '1. Початок роботи',
         's1.step1': '<strong>Відкрийте застосунок у браузері</strong> <a data-app-link href="https://typing-race-2026-chi.vercel.app/" target="_blank" rel="noopener">typing-race-2026-chi.vercel.app</a>',
         's1.step2': '<strong>За потреби перемкніть тему</strong> — світлу або темну у верхній частині сторінки.',
-        's1.step3': '<strong>Введіть ім’я</strong> у полі «Ваш нікнейм».',
+        's1.step3': '<strong>Введіть ім’я</strong> у полі «Ваш нікнейм» — застосунок його запам’ятає. Якщо за комп’ютером тренується кілька людей, заведіть кожному свій профіль (розділ нижче).',
         's1.step4': '<strong>Оберіть режим змагання</strong> та джерело тексту.',
         's1.step5': '<strong>Налаштуйте звук</strong> і натисніть кнопку початку заїзду.',
         's1.note': 'Під час першого тренування краще обрати режим <strong>«Соло»</strong> та коротку вправу з <strong>«Академії»</strong>.',
-        's2.title': '2. Режими змагання',
+        'prof.title': '2. Профілі',
+        'prof.intro': 'За одним комп’ютером може тренуватися кілька людей. У кожного профілю <strong>свої</strong> заряд тренування, серія днів, історія заїздів, прогрес курсів і досягнення.',
+        'prof.switch.title': 'Перемикання',
+        'prof.switch.desc': 'Рядок аватарів над полем нікнейму в лобі. Активний підсвічений, клік перемикає. Під час гонки перемикач вимкнений.',
+        'prof.new.title': 'Новий профіль',
+        'prof.new.desc': 'Кнопка <strong>+</strong> у тому ж рядку. Профіль створюється порожнім — ім’я йому дає звичайний набір у полі нікнейму нижче. Максимум шість.',
+        'prof.who.title': 'Хто зараз грає',
+        'prof.who.desc': 'Чіп з аватаром та ім’ям — у тулбарі лобі й у хедері гонки. Клік по ньому відкриває панель профілю.',
+        'prof.delete.title': 'Видалення',
+        'prof.delete.desc': 'Кошик поруч із плюсом, підтвердження у два кліки. Забирає весь прогрес цієї людини <strong>назавжди</strong>. Останній профіль видалити не можна.',
+        'prof.limits.label': 'Про що варто знати одразу',
+        'prof.limits.text': 'Профілі <strong>розділяють</strong> прогрес, а не приховують його: пароля немає, і будь-хто за цим комп’ютером може обрати будь-який профіль. Дані живуть у цьому браузері — на іншому пристрої буде інший профіль. Прогрес, накопичений до появи профілів, перейшов у перший профіль сам.',
+        's2.title': '3. Режими змагання',
         's2.solo.title': 'Соло',
         's2.solo.desc': 'Самостійне тренування без суперника.',
         's2.bot.title': 'Проти AI',
@@ -552,7 +613,7 @@
         's2.online.title': 'Онлайн',
         's2.online.desc': 'Гонка з іншими користувачами через інтернет.',
         's2.banner': 'Якщо кнопки <strong>«Онлайн»</strong> немає, онлайн-режим недоступний у поточній версії або сервер тимчасово не підключений. Інші режими продовжують працювати.',
-        's3.title': '3. Джерела тексту',
+        's3.title': '4. Джерела тексту',
         's3.academy.title': 'Академія',
         's3.academy.desc': 'Структуровані вправи українською, англійською або польською. Оберіть мову, модуль і вправу.',
         's3.tutor.title': 'Тренажер',
@@ -561,7 +622,7 @@
         's3.knowledge.desc': 'Навчальні тексти, згруповані за темами.',
         's3.file.title': 'З файлу',
         's3.file.desc': 'Власний текст із файлу <code>.txt</code> або <code>.md</code>.',
-        's4.title': '4. Програма тренування',
+        's4.title': '5. Програма тренування',
         's4.intro': 'Академія — не список, який треба «пройти», а послідовність із чотирьох кроків. Порядок і вимірюваний критерій переходу дають більше, ніж кількість зроблених вправ. Швидкість нижче вказана в <strong>SPM</strong> — символів за хвилину, тій самій величині, яку застосунок показує після кожного заїзду.',
         's4.step1.title': 'Крок 1. Механіка без слів',
         's4.step1.badge': 'Основа',
@@ -600,6 +661,19 @@
         's4.note.break': 'Підхід — 15–25 хвилин, після нього <strong>перерва обов’язкова</strong>: від десяти хвилин до кількох годин. Два підходи з перервою дають більше, ніж година без неї. Якщо вправа не йде після кількох спокійних спроб у двох заняттях — перейдіть до сусідньої, а до складної повернітеся наступного дня. Рух часто дозріває саме за час паузи.',
         's4.note.block': 'Тримайте перемикач у стані <strong>«Помилки: блок»</strong> (він такий за замовчуванням) — він не дає проскочити помилку далі й одразу показує символ, який треба виправити.',
         's4.note.meter': 'Денну ціль «Заряду тренування» закриває приблизно 500 символів вправ Академії — це 7–8 коротких вправ механіки. Тобто індикатор міряє <strong>регулярність</strong>, а не обсяг: закритий день не означає, що на сьогодні досить.',
+        's4.auto.heading': 'Застосунок відмічає це сам',
+        's4.auto.intro': 'У лобі є картка <strong>«Заняття сьогодні»</strong> з тими самими чотирма кроками. Галочки ставляться за фактом заїздів — ось що зараховується.',
+        's4.auto.th1': 'Крок',
+        's4.auto.th2': 'Що зараховується',
+        's4.auto.r1a': 'Розігрів',
+        's4.auto.r1b': 'Заїзд по вправі, яку ви вже робили <strong>раніше</strong>, не сьогодні.',
+        's4.auto.r2a': 'Цільова вправа',
+        's4.auto.r2b': 'Заїзд по вправі, ще не пройденій за критерієм вище.',
+        's4.auto.r3a': 'Закріплення',
+        's4.auto.r3b': 'Одна й та сама вправа <strong>двічі</strong> за сьогодні, обидва рази в межах дозволених помилок вашого рівня.',
+        's4.auto.r4a': 'Перенесення',
+        's4.auto.r4b': 'Заїзд по тексту з Бібліотеки знань або по завантаженому файлу.',
+        's4.auto.honest': 'Галочки — орієнтир, а не атестація: застосунок не міряє хвилини й не бачить, чи ви дивилися на клавіатуру. Їхня справа — показати форму заняття й дати йому кінець.',
         's4.map.heading': 'Що видно в «Аналізі» → яку вправу брати',
         's4.map.th1': 'Симптом',
         's4.map.th2': 'Модуль Академії',
@@ -616,14 +690,14 @@
         's4.map.r11': 'Великі літери, абревіатури, Shift',
         's4.map.footer': 'Наступне заняття починайте з 3–5 хвилин саме на слабке поєднання. Проходити весь курс заново через одну проблемну пару символів не потрібно.',
         's4.modules.note': 'Назви модулів наведені так, як вони підписані в самому курсі: український курс має українські назви, англійський — англійські, польський — польські. Вони не перекладаються разом з інтерфейсом.',
-        's5.title': '5. Як проходить заїзд',
+        's5.title': '6. Як проходить заїзд',
         's5.step1': '<strong>Дочекайтеся завершення відліку</strong> після старту.',
         's5.step2': '<strong>Клацніть у поле набору</strong>, якщо курсор не активний.',
         's5.step3': '<strong>Друкуйте показаний текст</strong> у тому самому регістрі та з усіма розділовими знаками.',
         's5.step4': '<strong>Стежте за прогресом</strong>, швидкістю та точністю.',
         's5.step5': '<strong>Щоб припинити заїзд раніше</strong>, натисніть «Закінчити достроково».',
         's5.note': 'Для польських та інших спеціальних символів використовуйте звичну клавіатурну розкладку з <strong>Option</strong> або <strong>AltGr</strong>.',
-        's6.title': '6. Онлайн-гонка',
+        's6.title': '7. Онлайн-гонка',
         's6.create.title': 'Створення кімнати',
         's6.create.badge': 'Хост',
         's6.create.1': 'Введіть нікнейм і оберіть <strong>«Онлайн»</strong>.',
@@ -643,7 +717,7 @@
         's6.join.4': 'Дочекайтеся, поки хост розпочне гонку.',
         's6.join.why.label': 'Зверніть увагу',
         's6.join.why.text': 'Закриті кімнати доступні лише за кодом. Якщо кімната заповнена, гонка вже почалася або код неправильний, приєднатися не вдасться.',
-        's7.title': '7. Результати й аналіз',
+        's7.title': '8. Результати й аналіз',
         's7.lead': 'Після фінішу доступні дві вкладки:',
         's7.protocol.title': 'Результати',
         's7.protocol.desc': 'Місце кожного гравця, швидкість у SPM та точність.',
@@ -653,15 +727,29 @@
         's7.after.1': '<strong>Повторити вправу</strong> кнопкою «Повторити» або клавішею <span class="kbd">R</span>',
         's7.after.2': '<strong>Перейти далі</strong> кнопкою «Наступна вправа» (у «Бібліотеці знань» — «Наступний урок») або клавішею <span class="kbd">J</span>',
         's7.after.3': '<strong>Повернутися до вибору</strong> кнопкою «Нова вправа» або клавішею <span class="kbd">N</span>',
-        's8.title': '8. Заряд тренування',
+        's8.title': '9. Заряд, рівень і досягнення',
         's8.p1': 'Індикатор <strong>«Заряд тренування»</strong> показує денну активність від 0 до 100%. Він зростає після завершених заїздів і якісного набору та оновлюється щодня. Дані зберігаються лише в поточному браузері.',
         's8.p2': 'Крім відсотка, індикатор показує:',
-        's8.li1': '<strong>🔥 Серію днів</strong> — скільки днів поспіль ви тренувалися.',
+        's8.li1': '<strong>🔥 Серію днів</strong> — скільки днів підряд ви тренувалися. Один пропущений день на тиждень серія прощає.',
         's8.li2': '<strong>Деталі дня</strong> — кількість заїздів, набраних символів, найкращу швидкість (SPM) і чисті заїзди.',
         's8.li3': '<strong>Кнопку «Скинути»</strong> — обнуляє прогрес поточного дня (серія днів при цьому зберігається).',
         's8.bonus.label': 'Бонус',
         's8.bonus.text': 'Коли денну ціль (100%) виконано, кожен наступний заїзд додає <strong>бонусні</strong> заїзди понад норму.',
-        's9.title': '9. Рекомендації',
+        's8.streak.label': 'Пропущений день',
+        's8.streak.text': 'Серія рахує дні тренувань підряд і <strong>прощає один пропуск на тиждень</strong>. Два пропуски поспіль або два в один тиждень починають її спочатку. Так задумано: перерва входить у програму, і день відпочинку не має коштувати місяця.',
+        's8.level.heading': 'Рівень',
+        's8.level.text': 'Денні результати не зникають опівночі, а складаються в <strong>рівень</strong>: 300 очок на рівень, тобто приблизно три повні дні. Оскільки денна ціль обмежена сотнею, рівень міряє <strong>регулярність</strong>, а не обсяг — його не можна взяти одним довгим вечором.',
+        's8.badges.heading': 'Досягнення',
+        's8.badges.text': 'Двадцять чотири бейджі в девʼяти групах: техніка, точність, слабкі літери, ритм, рівні швидкості, регулярність, заняття, курси й обсяг. Бейдж прилітає тостом одразу після заїзду.',
+        's8.badges.li1': '<strong>Швидкість — тільки разом із точністю.</strong> Бейджі рівнів вимагають і SPM, і точність зі своєї сходинки. 300 SPM при 90% не рахуються.',
+        's8.badges.li2': '<strong>Шість бейджів відкривають аватари.</strong> Замкнений аватар у панелі підказує, який саме бейдж його відкриє.',
+        's8.badges.li3': '<strong>«Наступна ціль»</strong> — картка в лобі показує <strong>одну</strong> найближчу. Далекі цілі існують, але ніколи не пропонуються як наступні.',
+        's8.weak.heading': 'Слабкі літери',
+        's8.weak.text': 'Помилки по літерах рахуються <strong>між заїздами</strong>, а не в межах одного — тому порада «спробуйте цю вправу» стабільна й не стрибає від однієї випадкової помилки. Літера вважається виправленою після трьох чистих заїздів поспіль, і за це теж є бейдж.',
+        's8.where': 'Усе це видно в панелі профілю: клік по чіпу з імʼям угорі сторінки. Спершу ціль і заняття, далі бейджі, а графік за 30 днів і рекорди — під згортанням «Статистика».',
+        's9.6': '<strong>Одна ціль за раз</strong> — тримайтеся картки «Наступна ціль». Решта бейджів — це запис зробленого, а не список завдань.',
+        's9.7': '<strong>Пропущений день — не катастрофа</strong> — тиждень має один дозволений пропуск, і перерва входить у програму.',
+        's9.title': '10. Рекомендації',
         's9.1': '<strong>Спочатку точність</strong> — працюйте над точністю, а потім збільшуйте швидкість.',
         's9.2': '<strong>Без погляду на клавіатуру</strong> — тримайте очі на екрані та використовуйте всі пальці.',
         's9.3': '<strong>Регулярність</strong> — тренуйтеся короткими регулярними сесіями.',
@@ -689,16 +777,29 @@
         'hero.chip.langs': 'UA · EN · PL',
         'hero.chip.modes': 'Solo · Bot · Online',
         'hero.chip.analysis': 'Analiza prędkości i dokładności',
+        'hero.chip.profiles': 'Profile i osiągnięcia',
         'hero.cta.start': 'Zacznij',
         'hero.cta.app': 'Otwórz aplikację',
         's1.title': '1. Pierwsze kroki',
         's1.step1': '<strong>Otwórz aplikację w przeglądarce</strong> <a data-app-link href="https://typing-race-2026-chi.vercel.app/" target="_blank" rel="noopener">typing-race-2026-chi.vercel.app</a>',
         's1.step2': '<strong>W razie potrzeby przełącz motyw</strong> — jasny albo ciemny, u góry strony.',
-        's1.step3': '<strong>Wpisz imię</strong> w polu „Twój pseudonim”.',
+        's1.step3': '<strong>Wpisz imię</strong> w polu „Twój pseudonim” — aplikacja je zapamięta. Jeśli przy komputerze ćwiczy kilka osób, załóżcie każdej własny profil (rozdział niżej).',
         's1.step4': '<strong>Wybierz tryb rywalizacji</strong> i źródło tekstu.',
         's1.step5': '<strong>Ustaw dźwięk</strong> i naciśnij przycisk rozpoczęcia wyścigu.',
         's1.note': 'Na pierwszy trening najlepiej wybrać tryb <strong>„Solo”</strong> i krótkie ćwiczenie z <strong>„Akademii”</strong>.',
-        's2.title': '2. Tryby rywalizacji',
+        'prof.title': '2. Profile',
+        'prof.intro': 'Przy jednym komputerze może ćwiczyć kilka osób. Każdy profil ma <strong>własną</strong> energię treningu, serię dni, historię wyścigów, postęp kursów i osiągnięcia.',
+        'prof.switch.title': 'Przełączanie',
+        'prof.switch.desc': 'Rząd awatarów nad polem pseudonimu w lobby. Aktywny jest podświetlony, kliknięcie przełącza. Podczas wyścigu przełącznik jest wyłączony.',
+        'prof.new.title': 'Nowy profil',
+        'prof.new.desc': 'Przycisk <strong>+</strong> w tym samym rzędzie. Profil powstaje pusty — imię nadaje mu zwykłe wpisanie w polu pseudonimu niżej. Maksymalnie sześć.',
+        'prof.who.title': 'Kto teraz gra',
+        'prof.who.desc': 'Chip z awatarem i imieniem — na pasku lobby i w nagłówku wyścigu. Kliknięcie otwiera panel profilu.',
+        'prof.delete.title': 'Usuwanie',
+        'prof.delete.desc': 'Kosz obok plusa, potwierdzenie w dwóch kliknięciach. Zabiera cały postęp tej osoby <strong>na zawsze</strong>. Ostatniego profilu nie da się usunąć.',
+        'prof.limits.label': 'O czym warto wiedzieć od razu',
+        'prof.limits.text': 'Profile <strong>rozdzielają</strong> postęp, a nie ukrywają go: hasła nie ma i każdy przy tym komputerze może wybrać dowolny profil. Dane żyją w tej przeglądarce — na innym urządzeniu będzie inny profil. Postęp zebrany przed pojawieniem się profili sam przeszedł do pierwszego.',
+        's2.title': '3. Tryby rywalizacji',
         's2.solo.title': 'Solo',
         's2.solo.desc': 'Samodzielny trening, bez przeciwnika.',
         's2.bot.title': 'Przeciw AI',
@@ -706,7 +807,7 @@
         's2.online.title': 'Online',
         's2.online.desc': 'Wyścig z innymi użytkownikami przez internet.',
         's2.banner': 'Jeśli przycisku <strong>„Online”</strong> nie ma, tryb online jest niedostępny w tej wersji albo serwer jest chwilowo odłączony. Pozostałe tryby działają normalnie.',
-        's3.title': '3. Źródła tekstu',
+        's3.title': '4. Źródła tekstu',
         's3.academy.title': 'Akademia',
         's3.academy.desc': 'Uporządkowane ćwiczenia po ukraińsku, angielsku lub polsku. Wybierz język, moduł i ćwiczenie.',
         's3.tutor.title': 'Trener',
@@ -715,7 +816,7 @@
         's3.knowledge.desc': 'Teksty edukacyjne pogrupowane tematycznie.',
         's3.file.title': 'Z pliku',
         's3.file.desc': 'Własny tekst z pliku <code>.txt</code> lub <code>.md</code>.',
-        's4.title': '4. Program treningu',
+        's4.title': '5. Program treningu',
         's4.intro': 'Akademia to nie lista do „odhaczenia”, tylko sekwencja czterech kroków. Kolejność i mierzalne kryterium przejścia dają więcej niż liczba zrobionych ćwiczeń. Prędkość podana jest w <strong>SPM</strong> — znakach na minutę, czyli tej samej wielkości, którą aplikacja pokazuje po każdym wyścigu.',
         's4.step1.title': 'Krok 1. Mechanika bez słów',
         's4.step1.badge': 'Podstawa',
@@ -754,6 +855,19 @@
         's4.note.break': 'Podejście trwa 15–25 minut, a po nim <strong>przerwa jest konieczna</strong>: od dziesięciu minut do kilku godzin. Dwa podejścia z przerwą dają więcej niż godzina bez niej. Jeśli ćwiczenie nie wychodzi po kilku spokojnych próbach w dwóch sesjach — przejdź do sąsiedniego, a do trudnego wróć następnego dnia. Ruch często dojrzewa właśnie w czasie przerwy.',
         's4.note.block': 'Trzymaj przełącznik w stanie <strong>„Błędy: blokowane”</strong> (tak jest domyślnie) — nie pozwala przepuścić błędu dalej i od razu pokazuje znak do poprawienia.',
         's4.note.meter': 'Dzienny cel „Energii treningu” zamyka mniej więcej 500 znaków ćwiczeń Akademii — to 7–8 krótkich ćwiczeń mechaniki. Wskaźnik mierzy więc <strong>regularność</strong>, a nie objętość: zamknięty dzień nie znaczy, że na dziś wystarczy.',
+        's4.auto.heading': 'Aplikacja odhacza to sama',
+        's4.auto.intro': 'W lobby jest karta <strong>„Dzisiejsza sesja”</strong> z tymi samymi czterema krokami. Ptaszki stawiane są na podstawie wyścigów — oto co się liczy.',
+        's4.auto.th1': 'Krok',
+        's4.auto.th2': 'Co się liczy',
+        's4.auto.r1a': 'Rozgrzewka',
+        's4.auto.r1b': 'Wyścig na ćwiczeniu, które robiliście już <strong>wcześniej</strong>, nie dzisiaj.',
+        's4.auto.r2a': 'Ćwiczenie docelowe',
+        's4.auto.r2b': 'Wyścig na ćwiczeniu jeszcze nieprzejściowym według kryterium wyżej.',
+        's4.auto.r3a': 'Utrwalenie',
+        's4.auto.r3b': 'To samo ćwiczenie <strong>dwa razy</strong> w ciągu dnia, oba w granicach błędów dozwolonych na waszym poziomie.',
+        's4.auto.r4a': 'Przeniesienie',
+        's4.auto.r4b': 'Wyścig na tekście z Biblioteki wiedzy albo na wgranym pliku.',
+        's4.auto.honest': 'Ptaszki to drogowskaz, a nie atestacja: aplikacja nie mierzy minut i nie widzi, czy patrzyliście na klawiaturę. Ich zadanie to pokazać kształt sesji i dać jej koniec.',
         's4.map.heading': 'Co widać w „Analizie” → jakie ćwiczenie wziąć',
         's4.map.th1': 'Objaw',
         's4.map.th2': 'Moduł Akademii',
@@ -770,14 +884,14 @@
         's4.map.r11': 'Wielkie litery, skrótowce, Shift',
         's4.map.footer': 'Następną sesję zacznij od 3–5 minut właśnie na słabym połączeniu. Nie trzeba przechodzić całego kursu od nowa przez jedną problematyczną parę znaków.',
         's4.modules.note': 'Nazwy modułów podane są tak, jak brzmią w samym kursie: kurs ukraiński ma nazwy ukraińskie, angielski — angielskie, polski — polskie. Nie tłumaczą się razem z interfejsem.',
-        's5.title': '5. Jak przebiega wyścig',
+        's5.title': '6. Jak przebiega wyścig',
         's5.step1': '<strong>Poczekaj na koniec odliczania</strong> po starcie.',
         's5.step2': '<strong>Kliknij w pole pisania</strong>, jeśli kursor nie jest aktywny.',
         's5.step3': '<strong>Przepisuj pokazany tekst</strong> z tą samą wielkością liter i wszystkimi znakami interpunkcyjnymi.',
         's5.step4': '<strong>Obserwuj postęp</strong>, prędkość i dokładność.',
         's5.step5': '<strong>Aby zakończyć wyścig wcześniej</strong>, naciśnij „Zakończ wcześniej”.',
         's5.note': 'Do polskich i innych znaków specjalnych używaj swojego zwykłego układu klawiatury z <strong>Option</strong> albo <strong>AltGr</strong>.',
-        's6.title': '6. Wyścig online',
+        's6.title': '7. Wyścig online',
         's6.create.title': 'Tworzenie pokoju',
         's6.create.badge': 'Host',
         's6.create.1': 'Wpisz pseudonim i wybierz <strong>„Online”</strong>.',
@@ -797,7 +911,7 @@
         's6.join.4': 'Poczekaj, aż host rozpocznie wyścig.',
         's6.join.why.label': 'Zwróć uwagę',
         's6.join.why.text': 'Zamknięte pokoje są dostępne tylko po kodzie. Jeśli pokój jest pełny, wyścig już się zaczął albo kod jest błędny — dołączenie się nie uda.',
-        's7.title': '7. Wyniki i analiza',
+        's7.title': '8. Wyniki i analiza',
         's7.lead': 'Po mecie dostępne są dwie zakładki:',
         's7.protocol.title': 'Wyniki',
         's7.protocol.desc': 'Miejsce każdego gracza, prędkość w SPM i dokładność.',
@@ -807,15 +921,29 @@
         's7.after.1': '<strong>Powtórzyć ćwiczenie</strong> przyciskiem „Powtórz” albo klawiszem <span class="kbd">R</span>',
         's7.after.2': '<strong>Przejść dalej</strong> przyciskiem „Następne ćwiczenie” (w „Bibliotece wiedzy” — „Następna lekcja”) albo klawiszem <span class="kbd">J</span>',
         's7.after.3': '<strong>Wrócić do wyboru</strong> przyciskiem „Nowe ćwiczenie” albo klawiszem <span class="kbd">N</span>',
-        's8.title': '8. Energia treningu',
+        's8.title': '9. Energia, poziom i osiągnięcia',
         's8.p1': 'Wskaźnik <strong>„Energia treningu”</strong> pokazuje dzienną aktywność od 0 do 100%. Rośnie po ukończonych wyścigach i dobrym pisaniu, a odnawia się codziennie. Dane są zapisywane tylko w tej przeglądarce.',
         's8.p2': 'Oprócz procentu wskaźnik pokazuje:',
-        's8.li1': '<strong>🔥 Serię dni</strong> — ile dni z rzędu trenowałeś.',
+        's8.li1': '<strong>🔥 Serię dni</strong> — ile dni pod rząd trenowaliście. Jeden opuszczony dzień w tygodniu seria wybacza.',
         's8.li2': '<strong>Szczegóły dnia</strong> — liczbę wyścigów, napisanych znaków, najlepszą prędkość (SPM) i czyste wyścigi.',
         's8.li3': '<strong>Przycisk „Wyzeruj”</strong> — kasuje postęp bieżącego dnia (seria dni zostaje zachowana).',
         's8.bonus.label': 'Bonus',
         's8.bonus.text': 'Gdy dzienny cel (100%) jest osiągnięty, każdy kolejny wyścig dolicza się jako <strong>bonusowy</strong> ponad normę.',
-        's9.title': '9. Zalecenia',
+        's8.streak.label': 'Opuszczony dzień',
+        's8.streak.text': 'Seria liczy dni treningu pod rząd i <strong>wybacza jeden opuszczony dzień w tygodniu</strong>. Dwa z rzędu albo dwa w jednym tygodniu zaczynają ją od nowa. Tak ma być: przerwa jest częścią programu, a dzień odpoczynku nie powinien kosztować miesiąca.',
+        's8.level.heading': 'Poziom',
+        's8.level.text': 'Dzienne wyniki nie znikają o północy, tylko składają się na <strong>poziom</strong>: 300 punktów na poziom, czyli mniej więcej trzy pełne dni. Ponieważ dzienny cel jest ograniczony do stu, poziom mierzy <strong>regularność</strong>, a nie objętość — nie da się go wziąć jednym długim wieczorem.',
+        's8.badges.heading': 'Osiągnięcia',
+        's8.badges.text': 'Dwadzieścia cztery odznaki w dziewięciu grupach: technika, dokładność, słabe litery, rytm, poziomy prędkości, regularność, sesje, kursy i objętość. Odznaka przylatuje powiadomieniem zaraz po wyścigu.',
+        's8.badges.li1': '<strong>Prędkość tylko razem z dokładnością.</strong> Odznaki poziomów wymagają i SPM, i dokładności ze swojego szczebla. 300 SPM przy 90% się nie liczy.',
+        's8.badges.li2': '<strong>Sześć odznak odblokowuje awatary.</strong> Zablokowany awatar w panelu podpowiada, która odznaka go otworzy.',
+        's8.badges.li3': '<strong>„Następny cel”</strong> — karta w lobby pokazuje <strong>jeden</strong> najbliższy. Dalekie cele istnieją, ale nigdy nie są proponowane jako następne.',
+        's8.weak.heading': 'Słabe litery',
+        's8.weak.text': 'Błędy na literach liczą się <strong>między wyścigami</strong>, a nie w obrębie jednego — dlatego podpowiedź „spróbuj tego ćwiczenia” jest stabilna i nie skacze po jednym przypadkowym błędzie. Litera uchodzi za poprawioną po trzech czystych wyścigach z rzędu, i za to też jest odznaka.',
+        's8.where': 'Wszystko to widać w panelu profilu: kliknięcie chipa z imieniem u góry strony. Najpierw cel i sesja, dalej odznaki, a wykres z 30 dni i rekordy — pod zwijaną „Statystyką”.',
+        's9.6': '<strong>Jeden cel naraz</strong> — trzymajcie się karty „Następny cel”. Reszta odznak to zapis zrobionego, a nie lista zadań.',
+        's9.7': '<strong>Opuszczony dzień to nie katastrofa</strong> — tydzień ma jeden dozwolony opuszczony dzień, a przerwa jest częścią programu.',
+        's9.title': '10. Zalecenia',
         's9.1': '<strong>Najpierw dokładność</strong> — najpierw pracuj nad dokładnością, dopiero potem zwiększaj prędkość.',
         's9.2': '<strong>Bez patrzenia na klawiaturę</strong> — trzymaj wzrok na ekranie i używaj wszystkich palców.',
         's9.3': '<strong>Regularność</strong> — trenuj krótkimi, regularnymi sesjami.',
@@ -843,16 +971,29 @@
         'hero.chip.langs': 'UA · EN · PL',
         'hero.chip.modes': 'Solo · Bot · Online',
         'hero.chip.analysis': 'Speed and accuracy analysis',
+        'hero.chip.profiles': 'Profiles and achievements',
         'hero.cta.start': 'Get started',
         'hero.cta.app': 'Open the app',
         's1.title': '1. Getting started',
         's1.step1': '<strong>Open the app in your browser</strong> <a data-app-link href="https://typing-race-2026-chi.vercel.app/" target="_blank" rel="noopener">typing-race-2026-chi.vercel.app</a>',
         's1.step2': '<strong>Switch the theme if you like</strong> — light or dark, at the top of the page.',
-        's1.step3': '<strong>Enter a name</strong> in the “Your nickname” field.',
+        's1.step3': '<strong>Type your name</strong> in the “Your nickname” field — the app remembers it. If several people train on this computer, give each of them a profile (next section).',
         's1.step4': '<strong>Pick a race mode</strong> and a text source.',
         's1.step5': '<strong>Set the sound</strong> and press the start button.',
         's1.note': 'For your first session, pick <strong>“Solo”</strong> and a short drill from the <strong>“Academy”</strong>.',
-        's2.title': '2. Race modes',
+        'prof.title': '2. Profiles',
+        'prof.intro': 'Several people can train on one computer. Every profile has <strong>its own</strong> training charge, day streak, race history, course progress and achievements.',
+        'prof.switch.title': 'Switching',
+        'prof.switch.desc': 'A row of avatars above the nickname field in the lobby. The active one is highlighted, a click switches. During a race the switcher is disabled.',
+        'prof.new.title': 'New profile',
+        'prof.new.desc': 'The <strong>+</strong> button in the same row. A profile starts empty — typing in the nickname field below names it. Six at most.',
+        'prof.who.title': 'Who is playing',
+        'prof.who.desc': 'A chip with the avatar and the name — in the lobby toolbar and in the race header. Clicking it opens the profile panel.',
+        'prof.delete.title': 'Deleting',
+        'prof.delete.desc': 'The bin next to the plus, confirmed in two clicks. It takes that person’s progress away <strong>for good</strong>. The last profile cannot be deleted.',
+        'prof.limits.label': 'Worth knowing up front',
+        'prof.limits.text': 'Profiles <strong>separate</strong> progress, they do not hide it: there is no password, and anyone at this computer can pick any profile. The data lives in this browser — another device means another profile. Progress collected before profiles existed moved into the first one by itself.',
+        's2.title': '3. Race modes',
         's2.solo.title': 'Solo',
         's2.solo.desc': 'Practise on your own, no opponent.',
         's2.bot.title': 'Against AI',
@@ -860,7 +1001,7 @@
         's2.online.title': 'Online',
         's2.online.desc': 'Race other people over the internet.',
         's2.banner': 'If there is no <strong>“Online”</strong> button, the online mode is unavailable in this build or the server is temporarily disconnected. Every other mode keeps working.',
-        's3.title': '3. Text sources',
+        's3.title': '4. Text sources',
         's3.academy.title': 'Academy',
         's3.academy.desc': 'Structured drills in Ukrainian, English or Polish. Pick a language, a module and a drill.',
         's3.tutor.title': 'Tutor',
@@ -869,7 +1010,7 @@
         's3.knowledge.desc': 'Study texts grouped by topic.',
         's3.file.title': 'From a file',
         's3.file.desc': 'Your own text from a <code>.txt</code> or <code>.md</code> file.',
-        's4.title': '4. Training programme',
+        's4.title': '5. Training programme',
         's4.intro': 'The Academy is not a list to get through but a sequence of four steps. Order and a measurable criterion for moving on matter more than the number of drills you finish. Speeds below are in <strong>SPM</strong> — symbols per minute, the same figure the app reports after every race.',
         's4.step1.title': 'Step 1. Mechanics without words',
         's4.step1.badge': 'Foundation',
@@ -908,6 +1049,19 @@
         's4.note.break': 'A set runs 15–25 minutes, and the <strong>break after it is mandatory</strong>: from ten minutes to a few hours. Two sets with a break beat an hour without one. If a drill will not come after a few calm attempts across two sessions, move to the neighbouring one and return to the hard one the next day. The movement often matures during the pause.',
         's4.note.block': 'Keep the toggle on <strong>“Errors: blocked”</strong> (that is the default) — it stops you from typing past a mistake and shows the character to fix straight away.',
         's4.note.meter': 'Roughly 500 characters of Academy drills close the daily “Training charge” goal — 7–8 short mechanics drills. So the meter measures <strong>regularity</strong>, not volume: a closed day does not mean you are done for today.',
+        's4.auto.heading': 'The app ticks this off itself',
+        's4.auto.intro': 'The lobby has a <strong>“Today’s session”</strong> card with the same four steps. The ticks come from what you actually raced — here is what counts.',
+        's4.auto.th1': 'Step',
+        's4.auto.th2': 'What counts',
+        's4.auto.r1a': 'Warm-up',
+        's4.auto.r1b': 'A race on a drill you have done <strong>before</strong>, not today.',
+        's4.auto.r2a': 'Target drill',
+        's4.auto.r2b': 'A race on a drill not yet passed by the criterion above.',
+        's4.auto.r3a': 'Consolidation',
+        's4.auto.r3b': 'The same drill <strong>twice</strong> today, both within the error budget of your tier.',
+        's4.auto.r4a': 'Transfer',
+        's4.auto.r4b': 'A race on a Knowledge Library text or on an uploaded file.',
+        's4.auto.honest': 'The ticks are a guide, not a certificate: the app does not measure minutes and cannot see whether you looked at the keyboard. Their job is to give a session a shape and an end.',
         's4.map.heading': 'What the “Analysis” tab shows → which drill to take',
         's4.map.th1': 'Symptom',
         's4.map.th2': 'Academy module',
@@ -924,14 +1078,14 @@
         's4.map.r11': 'Capitals, acronyms, Shift',
         's4.map.footer': 'Start the next session with 3–5 minutes on that weak combination. There is no need to redo the whole course because of one problematic pair.',
         's4.modules.note': 'Module names appear exactly as they are labelled inside the course: the Ukrainian course carries Ukrainian names, the English one English, the Polish one Polish. They do not translate along with the interface.',
-        's5.title': '5. How a race runs',
+        's5.title': '6. How a race runs',
         's5.step1': '<strong>Wait for the countdown to finish</strong> after the start.',
         's5.step2': '<strong>Click into the typing field</strong> if the cursor is not active.',
         's5.step3': '<strong>Type the text as shown</strong>, same case, all punctuation included.',
         's5.step4': '<strong>Watch your progress</strong>, speed and accuracy.',
         's5.step5': '<strong>To stop the race early</strong>, press “Finish early”.',
         's5.note': 'For Polish and other special characters, use your usual keyboard layout with <strong>Option</strong> or <strong>AltGr</strong>.',
-        's6.title': '6. Online race',
+        's6.title': '7. Online race',
         's6.create.title': 'Creating a room',
         's6.create.badge': 'Host',
         's6.create.1': 'Enter a nickname and pick <strong>“Online”</strong>.',
@@ -951,7 +1105,7 @@
         's6.join.4': 'Wait for the host to start the race.',
         's6.join.why.label': 'Note',
         's6.join.why.text': 'Private rooms are reachable by code only. If the room is full, the race has already started, or the code is wrong, joining will fail.',
-        's7.title': '7. Results and analysis',
+        's7.title': '8. Results and analysis',
         's7.lead': 'Two tabs are available after the finish:',
         's7.protocol.title': 'Results',
         's7.protocol.desc': 'Each player’s position, speed in SPM and accuracy.',
@@ -961,15 +1115,29 @@
         's7.after.1': '<strong>Repeat the drill</strong> with the “Repeat” button or the <span class="kbd">R</span> key',
         's7.after.2': '<strong>Move on</strong> with “Next drill” (“Next lesson” in the Knowledge library) or the <span class="kbd">J</span> key',
         's7.after.3': '<strong>Go back to the picker</strong> with “New drill” or the <span class="kbd">N</span> key',
-        's8.title': '8. Training charge',
+        's8.title': '9. Charge, level and achievements',
         's8.p1': 'The <strong>“Training charge”</strong> meter shows the day’s activity from 0 to 100%. It grows after finished races and clean typing, and resets every day. The data lives in this browser only.',
         's8.p2': 'Besides the percentage, the meter shows:',
-        's8.li1': '<strong>🔥 The day streak</strong> — how many days in a row you have trained.',
+        's8.li1': '<strong>🔥 The day streak</strong> — how many days in a row you trained. One missed day a week is forgiven.',
         's8.li2': '<strong>Day details</strong> — races, characters typed, best speed (SPM) and clean runs.',
         's8.li3': '<strong>The “Reset” button</strong> — clears today’s progress (the streak survives).',
         's8.bonus.label': 'Bonus',
         's8.bonus.text': 'Once the daily goal (100%) is met, every further race counts as a <strong>bonus</strong> run on top.',
-        's9.title': '9. Recommendations',
+        's8.streak.label': 'A missed day',
+        's8.streak.text': 'The streak counts days of training in a row and <strong>forgives one missed day a week</strong>. Two in a row, or two in the same week, start it over. That is deliberate: a break is part of the programme, and a day off should not cost a month.',
+        's8.level.heading': 'Level',
+        's8.level.text': 'Daily results no longer vanish at midnight — they add up into a <strong>level</strong>: 300 points per level, roughly three full days. Since the daily goal is capped at a hundred, the level measures <strong>regularity</strong>, not volume — you cannot take it in one long evening.',
+        's8.badges.heading': 'Achievements',
+        's8.badges.text': 'Twenty-four badges in nine groups: technique, precision, weak letters, rhythm, speed tiers, regularity, sessions, courses and volume. A badge arrives as a notification right after the race.',
+        's8.badges.li1': '<strong>Speed only counts with accuracy.</strong> Tier badges require both the SPM and the accuracy of their step. 300 SPM at 90% does not count.',
+        's8.badges.li2': '<strong>Six badges unlock avatars.</strong> A locked avatar in the panel tells you which badge opens it.',
+        's8.badges.li3': '<strong>“Next goal”</strong> — the lobby card shows <strong>one</strong> nearest goal. Far targets exist, but are never proposed as the next one.',
+        's8.weak.heading': 'Weak letters',
+        's8.weak.text': 'Per-letter mistakes are counted <strong>across races</strong>, not within one — which is why the “try this drill” hint is steady and does not jump after a single unlucky slip. A letter counts as fixed after three clean races in a row, and there is a badge for that too.',
+        's8.where': 'All of it lives in the profile panel: click the chip with your name at the top of the page. The goal and the session first, then the badges, with the 30-day chart and the records folded away under “Statistics”.',
+        's9.6': '<strong>One goal at a time</strong> — stick to the “Next goal” card. The rest of the badges are a record of what you have done, not a to-do list.',
+        's9.7': '<strong>A missed day is not a disaster</strong> — the week has one allowance, and a break is part of the programme.',
+        's9.title': '10. Recommendations',
         's9.1': '<strong>Accuracy first</strong> — work on accuracy, then raise the speed.',
         's9.2': '<strong>Eyes off the keyboard</strong> — keep them on the screen and use all your fingers.',
         's9.3': '<strong>Regularity</strong> — train in short, regular sessions.',
