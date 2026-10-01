@@ -212,6 +212,7 @@
     .link-card:hover { text-decoration: none; box-shadow: var(--shadow-1); border-color: var(--md-sys-color-primary); }
     .link-card .material-symbols-outlined { color: var(--md-sys-color-primary); }
     .link-card strong { display: block; margin-bottom: 2px; }
+    .link-card[hidden] { display: none; }
     .link-card span { font-size: 0.85rem; color: var(--md-sys-color-on-surface-variant); }
 
     code, .mono { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-size: 0.85em; padding: 1px 6px; border-radius: 6px; background: var(--md-sys-color-surface-container-high); }
@@ -581,6 +582,8 @@
       <div class="section-header"><span class="material-symbols-outlined">link</span><h2 id="links-title" class="md-typescale-title-large" data-i18n="links.title">Корисні посилання</h2></div>
       <div class="links-grid">
         <a class="link-card" data-app-link href="https://typing-race-2026-chi.vercel.app/" target="_blank" rel="noopener"><span class="material-symbols-outlined">open_in_new</span><span><strong data-i18n="links.app.title">Відкрити застосунок</strong><span data-i18n="links.app.desc">Touch Type Race у браузері</span></span></a>
+        <!-- Ukrainian only: the episodes are in Ukrainian, so pl/en hide the card (data-only-lang) and it carries no data-i18n keys. -->
+        <a class="link-card" data-only-lang="uk" href="https://www.youtube.com/playlist?list=PLM3BjNpOgnzw" target="_blank" rel="noopener"><span class="material-symbols-outlined">podcasts</span><span><strong>Подкаст</strong><span>11 випусків про тренажер на YouTube</span></span></a>
       </div>
     </section>
   </main>
@@ -1293,6 +1296,9 @@
       // The app reads ?lang= too, so following a link keeps the language.
       for (const el of document.querySelectorAll('[data-app-link]')) {
         el.setAttribute('href', APP_URL + '?lang=' + lang);
+      }
+      for (const el of document.querySelectorAll('[data-only-lang]')) {
+        el.hidden = el.getAttribute('data-only-lang') !== lang;
       }
       for (const chip of document.querySelectorAll('.lang-chip')) {
         chip.setAttribute('aria-pressed', String(chip.getAttribute('data-lang') === lang));
